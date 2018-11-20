@@ -8,6 +8,6 @@
 
 import UIKit
 
-class PNBaseModel: NSObject {
+class BaseModel: NSObject {
 
 }

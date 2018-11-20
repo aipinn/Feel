@@ -1,5 +1,5 @@
 //
-//  PNBaseViewController.swift
+//  PNBaseNavigationController.swift
 //  Feel
 //
 //  Created by pinn on 2018/11/19.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class PNBaseViewController: UIViewController {
+class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rand = CGFloat(arc4random() % 10+5)
-        view.backgroundColor = UIColor(white: CGFloat(rand/10.0), alpha: 1)
+
         // Do any additional setup after loading the view.
     }
     
