@@ -17,7 +17,8 @@ class PNHomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        _ = IX
+        
         
     }
     

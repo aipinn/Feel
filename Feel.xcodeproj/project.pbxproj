@@ -69,6 +69,7 @@
 		BC49EF0521A30181004F5959 /* FeelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49EF0921A30181004F5959 /* FeelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelUITests.swift; sourceTree = "<group>"; };
 		BC49EF0B21A30181004F5959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC6D7E7421B4189E00F66CC9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BC6DF27D21A30A5000765710 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		BC6DF27F21A30A6600765710 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC6DF28121A30AA200765710 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		BC49EEDD21A30181004F5959 = {
 			isa = PBXGroup;
 			children = (
+				BC6D7E7421B4189E00F66CC9 /* MyPlayground.playground */,
 				3D07E74321A3FDA400C49924 /* Feel.swift */,
 				BC49EEE821A30181004F5959 /* Feel */,
 				BC49EEFD21A30181004F5959 /* FeelTests */,
@@ -221,7 +223,7 @@
 				BC49EEE221A30181004F5959 /* Sources */,
 				BC49EEE321A30181004F5959 /* Frameworks */,
 				BC49EEE421A30181004F5959 /* Resources */,
-				8BCB251EFEED646EA4F9F287 /* [CP] Embed Pods Frameworks */,
+				9254927F22DB1E756EDEEE4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,7 +344,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8BCB251EFEED646EA4F9F287 /* [CP] Embed Pods Frameworks */ = {
+		9254927F22DB1E756EDEEE4B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

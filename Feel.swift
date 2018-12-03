@@ -19,6 +19,8 @@ let kScreenHeight = kScreenBounds.height
 
 let kNavBarHeight = UIDevice.current.type == .iPhoneX ? 88 : 44
 
+/// 刘海屏
+let IX = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)! > CGFloat(0)
 
 public enum DeviceType: Int {
     case simulator
