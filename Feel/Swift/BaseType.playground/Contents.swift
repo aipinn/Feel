@@ -45,31 +45,3 @@ dict.hashValue
 
 
 
-
-/// 对象和类
-
-class Shap {
-    
-    var numberOfSides = 0
-    var name: String
-    var color: UIColor?
-    
-    
-    
-    init(name: String) {
-        self.name = name
-    }
-    
-    
-    
-    func simpleDesc() -> String {
-        return "A shape with \(numberOfSides) sides."
-    }
-    
-    func drawColor(color: UIColor, defaultColor: UIColor = UIColor.white) {
-        
-    }
-
-}
-
-

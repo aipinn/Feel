@@ -59,6 +59,11 @@
 		3D0DC47221B51F3400963A73 /* PNSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSwiftViewController.swift; sourceTree = "<group>"; };
 		3D0DC47621B5220A00963A73 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3D9A970721B547630037E1AD /* Function.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Function.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3D9A970821B60B790037E1AD /* ClassAndObj.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassAndObj.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3D9A970921B62D370037E1AD /* Genericity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Genericity.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3D9A970A21B62D370037E1AD /* ErrorHandle.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ErrorHandle.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3D9A970B21B62D370037E1AD /* EnumStruct.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = EnumStruct.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3D9A970C21B62D370037E1AD /* ProtocolAndExtension.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProtocolAndExtension.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		488564D09FFC88B7C72CFD42 /* Pods-FeelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeelTests/Pods-FeelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80ADDD570D778075C964719B /* Pods_FeelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEA66AFAB9B14FA623E7857 /* Pods_Feel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +82,7 @@
 		BC49EF0521A30181004F5959 /* FeelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49EF0921A30181004F5959 /* FeelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelUITests.swift; sourceTree = "<group>"; };
 		BC49EF0B21A30181004F5959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC6D7E7421B4189E00F66CC9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BC6D7E7421B4189E00F66CC9 /* BaseType.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BaseType.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BC6DF27D21A30A5000765710 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		BC6DF27F21A30A6600765710 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC6DF28121A30AA200765710 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -133,8 +138,14 @@
 		3D0DC47421B51F3C00963A73 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				3D9A970721B547630037E1AD /* Function.playground */,
+				BC6D7E7421B4189E00F66CC9 /* BaseType.playground */,
 				3D0DC47621B5220A00963A73 /* ControlFlow.playground */,
+				3D9A970721B547630037E1AD /* Function.playground */,
+				3D9A970821B60B790037E1AD /* ClassAndObj.playground */,
+				3D9A970B21B62D370037E1AD /* EnumStruct.playground */,
+				3D9A970C21B62D370037E1AD /* ProtocolAndExtension.playground */,
+				3D9A970A21B62D370037E1AD /* ErrorHandle.playground */,
+				3D9A970921B62D370037E1AD /* Genericity.playground */,
 				3D0DC47221B51F3400963A73 /* PNSwiftViewController.swift */,
 			);
 			path = Swift;
@@ -166,7 +177,6 @@
 		BC49EEDD21A30181004F5959 = {
 			isa = PBXGroup;
 			children = (
-				BC6D7E7421B4189E00F66CC9 /* MyPlayground.playground */,
 				3D07E74321A3FDA400C49924 /* Feel.swift */,
 				BC49EEE821A30181004F5959 /* Feel */,
 				BC49EEFD21A30181004F5959 /* FeelTests */,

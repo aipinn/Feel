@@ -1,7 +1,8 @@
 import UIKit
 
 var str = "Hello, Function"
-/// 函数,函数是一等公民,可以作为参数,返回值,可以嵌套
+/// 函数
+// 函数是一等公民,可以作为参数,返回值,可以嵌套
 func greet(person: String, day: String) -> String {
     return person + day;
 }
@@ -111,12 +112,35 @@ print(sortedDec)
 
 
 class myList {
-   
-    func mySort() {
-        
+    
+    var list: [Int]
+    
+    init(list: [Int]) {
+        self.list = list
     }
+    
+    func mySort(_ compare: @escaping (Int, Int) -> Bool ) {
+        
+        for i in 0..<list.count {
+            for j in i+1..<list.count{
+                if (list[i] > list[j]){//小-->大
+                    let temp = list[i]
+                    list[i] = list[j]
+                    list[j] = temp
+                }
+            }
+        }
+
+        print(list)
+    }
+    
 }
 
 var list: myList?
+list = myList.init(list: [2,5,3,9,4,8,7])
+list?.mySort { (a, b) -> Bool in
+    return a > b
+}
+list?.mySort{ $0 < $1 }
 
-list?.mySort()
+
