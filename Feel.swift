@@ -15,10 +15,25 @@ let kScreenBounds = UIScreen.main.bounds
 let kScreenWidth = kScreenBounds.width
 let kScreenHeight = kScreenBounds.height
 
+let X_Series: Bool = (UIDevice.current.type == .iPhoneX || UIDevice.current.type == .iPhoneXS || UIDevice.current.type == .iPhoneXR || UIDevice.current.type == .iPhoneXSMax)
 
+let kTopBarHeight = X_Series ? 88 : 44
+let kSatusBarHeight = X_Series ? 44 : 20
+let kTabBarHeight = X_Series ? 83 : 49
+let kBottomSpace = X_Series ? 34 : 0
 
-let kNavBarHeight = UIDevice.current.type == .iPhoneX ? 88 : 44
-
+// 第一种
+let isiphoneX = UIApplication.shared.statusBarFrame.height >= 44
+// 第二种
+var issiphoneX: Bool {
+    if #available(iOS 11, *) {
+        if let w = UIApplication.shared.delegate?.window,
+            let window = w, window.safeAreaInsets.left > 0 || window.safeAreaInsets.bottom > 0 {
+            return true
+        }
+    }
+    return false
+}
 
 public enum DeviceType: Int {
     case simulator
@@ -70,7 +85,6 @@ public enum DeviceType: Int {
     
     case unrecognized
 }
-
 extension UIDevice {
     var modelName: String {
         var systemInfo = utsname()

@@ -18,8 +18,9 @@ target 'Feel' do
   end
 
   #  pod "ViewMonitor"
-  pod "Alamofire"
-  pod "Masonry"
+  pod 'Alamofire'
+  pod 'Masonry'
+  pod 'SnapKit'
 
 
 end

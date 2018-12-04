@@ -49,24 +49,26 @@ class BaseTabBarController: UITabBarController {
     fileprivate func prepareData(){
         
         clsNameArr = [NSStringFromClass(PNHomeViewController.classForCoder()),
-                      NSStringFromClass(PNPersonalViewController.classForCoder())]
+                      NSStringFromClass(PNPersonalViewController.classForCoder()),
+                      NSStringFromClass(PNSwiftViewController.classForCoder())
+                     ]
         
-        titleArr = ["Home", "Personal"]
+        titleArr = ["Home", "Swift", "Personal"]
         
         imageArr = [
                     "tab_bar_discover",
-//                    "tab_bar_pro",
 //                    "tab_bar_add",
 //                    "tab_bar_msg",
-                    "tab_bar_my"
+                     "tab_bar_pro",
+                     "tab_bar_my",
                 ]
         
         imageSelArr = [
                        "tab_bar_discover_selected",
-//                       "tab_bar_pro_selected",
 //                       "tab_bar_add_selected",
 //                       "tab_bar_msg_selected",
-                       "tab_bar_my_selected"
+                        "tab_bar_pro_selected",
+                        "tab_bar_my_selected",
                     ]
         
     }
