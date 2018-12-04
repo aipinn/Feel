@@ -22,6 +22,7 @@ let kSatusBarHeight = X_Series ? 44 : 20
 let kTabBarHeight = X_Series ? 83 : 49
 let kBottomSpace = X_Series ? 34 : 0
 
+
 // 第一种
 let isiphoneX = UIApplication.shared.statusBarFrame.height >= 44
 // 第二种
@@ -34,6 +35,8 @@ var issiphoneX: Bool {
     }
     return false
 }
+
+let kNavBarHeight = UIDevice.current.type == .iPhoneX ? 88 : 44
 
 public enum DeviceType: Int {
     case simulator

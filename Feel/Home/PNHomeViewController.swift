@@ -13,7 +13,6 @@ class PNHomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let singatureView = PNSignatureView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 500))
         singatureView.backgroundColor = UIColor.cyan
         view.addSubview(singatureView)
@@ -31,12 +30,6 @@ class PNHomeViewController: BaseViewController {
             imageView.image = img
             self.view.addSubview(imageView)
         }
-        
-
-    
-       
-        
-        
         
     }
     
