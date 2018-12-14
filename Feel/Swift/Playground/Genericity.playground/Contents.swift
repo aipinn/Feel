@@ -23,3 +23,29 @@ enum OptionalValue<Wrapped> {
 
 var posdibleInteger: OptionalValue<Int> = .none
 posdibleInteger = .some(100)
+
+func anyCommonElements<T: Sequence, U: Sequence>(lhs: T, rhs: U) -> Bool
+    where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element {
+        for lhsItem in lhs {
+            for rhsItem in rhs {
+                if lhsItem == rhsItem {
+                    return true
+                }
+            }
+        }
+        return false
+}
+
+anyCommonElements(lhs: [1,2,3], rhs: [3])
+
+
+func swapTwoValues<V>(a: inout V, b: inout V ){
+    let temp = a
+    a = b
+    b = temp
+}
+
+var someone = 3
+var someAnother = 5
+swap(&someone, &someAnother)
+print(someAnother, someone)
