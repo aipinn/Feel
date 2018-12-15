@@ -47,5 +47,6 @@ func swapTwoValues<V>(a: inout V, b: inout V ){
 
 var someone = 3
 var someAnother = 5
+swapTwoValues(a: &someone, b: &someAnother)
 swap(&someone, &someAnother)
 print(someAnother, someone)
