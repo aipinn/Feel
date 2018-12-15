@@ -59,3 +59,4 @@ protocolValue.adjust()
 // 尽管变量protocolValue有SimpleaClass的运行时类型, 但编译器还是把它看做ExampleProtocol. 这意味着我们不能访问在类在这个协议中扩展的属性和方法
 //print(protocolValue.anotherProperty)
 
+

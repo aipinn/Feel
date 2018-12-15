@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw' executeOnSourceChanges='false'>
+    <pages>
+        <page name='Feel'/>
+        <page name='BaseType'/>
+        <page name='ControlFlow'/>
+        <page name='ClassAndObj'/>
+        <page name='ProtocolAndExtension'/>
+        <page name='Function'/>
+        <page name='EnumStruct'/>
+        <page name='Protocol'/>
+        <page name='Extension'/>
+        <page name='Genericity'/>
+        <page name='ErrorHandle'/>
+        <page name='Swift_Tips_0'/>
+        <page name='Swift_Tips_1'/>
+        <page name='Swift_Tips_2'/>
+        <page name='Objc_Swift_0'/>
+        <page name='Objc_Swift_1'/>
+        <page name='Objc_Swift_2'/>
+    </pages>
+</playground>

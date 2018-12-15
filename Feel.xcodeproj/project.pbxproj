@@ -58,19 +58,7 @@
 		3D07E74821A50C9200C49924 /* PNSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSignatureView.swift; sourceTree = "<group>"; };
 		3D07EE6821A6B41D00C49924 /* PNTextArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNTextArrowView.swift; sourceTree = "<group>"; };
 		3D0DC47221B51F3400963A73 /* PNSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSwiftViewController.swift; sourceTree = "<group>"; };
-		3D0DC47621B5220A00963A73 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D5294AF21C382B200CFEA43 /* Feel_tips_2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Feel_tips_2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D709BEE21C1FD1D00A8D3E7 /* Feel_tips_1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Feel_tips_1.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D92E59121BE5DB800BCAE57 /* Feel_tips_0.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Feel_tips_0.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3D92E59221BF67FF00BCAE57 /* PNExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNExtension.swift; sourceTree = "<group>"; };
-		3D9A970721B547630037E1AD /* Function.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Function.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D9A970821B60B790037E1AD /* ClassAndObj.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassAndObj.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D9A970921B62D370037E1AD /* Genericity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Genericity.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D9A970A21B62D370037E1AD /* ErrorHandle.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ErrorHandle.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D9A970B21B62D370037E1AD /* EnumStruct.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = EnumStruct.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3D9A970C21B62D370037E1AD /* ProtocolAndExtension.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProtocolAndExtension.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3DF2426221C0AC4900807302 /* Protocol.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocol.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3DF2426321C0AC4900807302 /* Extension.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extension.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		488564D09FFC88B7C72CFD42 /* Pods-FeelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeelTests/Pods-FeelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80ADDD570D778075C964719B /* Pods_FeelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEA66AFAB9B14FA623E7857 /* Pods_Feel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +77,6 @@
 		BC49EF0521A30181004F5959 /* FeelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49EF0921A30181004F5959 /* FeelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelUITests.swift; sourceTree = "<group>"; };
 		BC49EF0B21A30181004F5959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC6D7E7421B4189E00F66CC9 /* BaseType.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BaseType.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BC6DF27D21A30A5000765710 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		BC6DF27F21A30A6600765710 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC6DF28121A30AA200765710 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -145,31 +132,10 @@
 		3D0DC47421B51F3C00963A73 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				3D709BEC21C1FC9E00A8D3E7 /* Playground */,
 				3D0DC47221B51F3400963A73 /* PNSwiftViewController.swift */,
 				3D92E59221BF67FF00BCAE57 /* PNExtension.swift */,
 			);
 			path = Swift;
-			sourceTree = "<group>";
-		};
-		3D709BEC21C1FC9E00A8D3E7 /* Playground */ = {
-			isa = PBXGroup;
-			children = (
-				BC6D7E7421B4189E00F66CC9 /* BaseType.playground */,
-				3D9A970821B60B790037E1AD /* ClassAndObj.playground */,
-				3D0DC47621B5220A00963A73 /* ControlFlow.playground */,
-				3D9A970B21B62D370037E1AD /* EnumStruct.playground */,
-				3D9A970A21B62D370037E1AD /* ErrorHandle.playground */,
-				3DF2426321C0AC4900807302 /* Extension.playground */,
-				3D92E59121BE5DB800BCAE57 /* Feel_tips_0.playground */,
-				3D709BEE21C1FD1D00A8D3E7 /* Feel_tips_1.playground */,
-				3D5294AF21C382B200CFEA43 /* Feel_tips_2.playground */,
-				3D9A970721B547630037E1AD /* Function.playground */,
-				3D9A970921B62D370037E1AD /* Genericity.playground */,
-				3DF2426221C0AC4900807302 /* Protocol.playground */,
-				3D9A970C21B62D370037E1AD /* ProtocolAndExtension.playground */,
-			);
-			path = Playground;
 			sourceTree = "<group>";
 		};
 		A30267B17108434B474EDC34 /* Pods */ = {
@@ -684,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8K5FMWVMXX;
+				DEVELOPMENT_TEAM = 4B2WMR5XE5;
 				INFOPLIST_FILE = Feel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -703,7 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8K5FMWVMXX;
+				DEVELOPMENT_TEAM = 4B2WMR5XE5;
 				INFOPLIST_FILE = Feel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

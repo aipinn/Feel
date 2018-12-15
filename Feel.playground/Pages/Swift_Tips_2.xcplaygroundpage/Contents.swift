@@ -1,4 +1,5 @@
 import UIKit
+import PlaygroundSupport
 
 var str = "Hello, Tips_2"
 
@@ -25,9 +26,9 @@ for child in r.children {
     print("属性名:\(child.label!), 值:\(child.value)")
 }
 /*
-public typealias Child = (label: String?, value: Any)
-public typealias Children = AnyCollection<Mirror.Child>
-*/
+ public typealias Child = (label: String?, value: Any)
+ public typealias Children = AnyCollection<Mirror.Child>
+ */
 //AnyCollection是遵守collectionType协议的, 因此可以使用count获取元素个数
 // 上面声明的Person类的所有实例都包含有两个多元组(label: String?, value: Any)
 // lable?是属性名, value是属性值, 可能是嵌套的(eg: 数组 字典等)
@@ -53,7 +54,7 @@ func valueFor(_ object: Any, key: String) -> Any? {
 }
 
 if let name = valueFor(xm, key: "name") as? String {
-     print(name)
+    print(name)
 }
 
 //-----------------------------------------
@@ -89,12 +90,12 @@ if let oo = obj {
 // 但是多重Optional是个问题:
 // 在类型后面加上问号❓的语法只不过是Optional类型的语法糖,而实际上这个类型是一个enum:
 /*
-public enum Optional<Wrapped> : ExpressibleByNilLiteral {
-    case none
-    case some(Wrapped)
-    ...
-}
-*/
+ public enum Optional<Wrapped> : ExpressibleByNilLiteral {
+ case none
+ case some(Wrapped)
+ ...
+ }
+ */
 
 var string: String? = "string"
 var anotherString: String?? = string
@@ -176,9 +177,9 @@ struct MyStruct: MyProtocol {
     //called
     
     //2. 当然也可以自己实现
-//    func method() {
-//        print("myself impl")
-//    }
+    //    func method() {
+    //        print("myself impl")
+    //    }
     //输出:
     //myself impl
 }
@@ -246,3 +247,91 @@ a2.method2()//hi
 // a2调用method2实际上是扩展中的方法被调用了,而不是实例中的方法被调用.
 // 我们不妨这样理解:...对于method1,实例a2遵守了协议必定实现了method1,我们可以放心的用动态派发的方式使用最终的实现
 // (不论他是在类型中的实现还是协议扩展中的默认实现)l; 但是对method2来说,我们只在扩展中定义并实现, 没有任何规定说它必须在类型中实现. 在使用时,a2是只符合A2协议的实例,编译器对method2唯一能确定的只是在协议中有一个方法并实现,因此在调用时无法确定安全,也就不去进行动态派发,而是转而编译期间就确定的默认实现.
+
+/*:
+ ## where和模式匹配
+ 使用场景:
+ */
+//: 1. switch语句中, 可以使用where来限制某些条件case
+
+let name = ["王小二", "张小三", "李小四", "王二小"]
+
+name.forEach {
+    switch $0 {
+    case let x where x.hasPrefix("王"):
+        print(x)
+    default:
+        print("非王")
+    }
+}
+//:这可以说是模式匹配的标准用法,对case进行限制可以更灵活使用switch语句
+
+//: 2. 在for语句中使用
+let number: [Int?] = [45, 89, nil]
+let n = number.compactMap{$0}
+
+for score in n where score > 60 {
+    print("及格\(score)")
+}
+
+
+//: 3. 和for类似, 可以使用可选绑定进行限制.
+//: >不过在swift3之后,if let 和 guard let的条件不再使用where语句,而是直接在if或guard后面添加逗号
+    
+number.forEach {
+
+    if let score = $0 ,score > 60 {
+        print("--及格\(score)")
+    } else {
+        print("++😣")
+    }
+    
+}
+
+//: 4. 在泛型中对方法的类型进行限定, 比如在标准库中不等于!=的定义
+//: 5. 在协议扩展protocol extension. 有时候,我们希望一个协议的扩展的默认实现只在某些情况下使用,这时候可以使用where限定.
+
+/*:
+ ## indirect和嵌套enum
+ */
+
+//: 单向列表
+class Node<T> {
+    let value: T?
+    let next: Node<T>?
+    
+    init(value: T?, next: Node<T>?) {
+        self.value = value
+        self.next = next
+    }
+}
+
+let list = Node(value: 1, next:
+                Node(value: 2, next:
+                    Node(value: 3, next:
+                        Node(value: 4, next: nil))))
+list
+
+/*: 这样似乎没什么问题, 但是当节点为空时使用nil并不恰当,因为nil和空节点并不是一回事
+ swift2以后我们可以使用enum嵌套,用enum重新定义链表的话,如下:
+ */
+indirect enum LinkedList<Element: Comparable> {
+    case empty
+    case node(Element, LinkedList<Element>)
+    
+    func removing(_ element: Element) -> LinkedList<Element> {
+        guard case let .node(value, next) = self else {
+            return .empty
+        }
+        return value == element ? next: LinkedList.node(value, next.removing(element))
+    }
+}
+let linkedList = LinkedList.node(1, .node(2, .node(3, .node(4, .empty))))
+
+/*:
+ 在enum的定义中嵌套自身对于class这样的引用类型时没有任何问题的,但是对于enum struct这样的值类型来说
+ 普通的做法是不可行的. 我们需要在定义前加上indirect来提示编译器不要直接在值类型中世界嵌套.用enum表达链表的好处在于,我们可以清晰的表示出空节点这一定义.同时我们可以使用寥寥数行就能轻易实现链表的节点删除方法. 在enum中添加removing方法
+ */
+
+let result = linkedList.removing(2)
+print(result)
