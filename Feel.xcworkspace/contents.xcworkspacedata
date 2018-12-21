@@ -7,7 +7,4 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:/Users/pinn/Git/Feel/Feel.playground">
-   </FileRef>
 </Workspace>

@@ -49,8 +49,8 @@ class BaseTabBarController: UITabBarController {
     fileprivate func prepareData(){
         
         clsNameArr = [NSStringFromClass(PNHomeViewController.classForCoder()),
-                      NSStringFromClass(PNPersonalViewController.classForCoder()),
-                      NSStringFromClass(PNSwiftViewController.classForCoder())
+                      NSStringFromClass(PNSwiftViewController.classForCoder()),
+                      NSStringFromClass(PNPersonalViewController.classForCoder())
                      ]
         
         titleArr = ["Home", "Swift", "Personal"]
