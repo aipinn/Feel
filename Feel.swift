@@ -9,6 +9,37 @@
 import Foundation
 import UIKit
 
+
+
+
+
+
+
+
+
+
+/*:
+ ## Log
+ 
+ 符号         类型     描述
+ #file      String  包含这个符号的文件的路径
+ #line      Int     符号出现处的行号
+ #column    Int     符号出现处的列号
+ #function  String  方法名字
+ */
+
+func printing<T>(_ message: T,
+                 file: String = #file,
+                 method: String = #function,
+                 line: Int = #line)
+{
+    #if DEBUG
+    print("\((file as NSString).lastPathComponent)[\(line)],\(method): \(message)")
+    #endif
+}
+
+
+
 let NAMESPACE = Bundle.main.infoDictionary?["CFBundleExecutable"] as! String
 
 let kScreenBounds = UIScreen.main.bounds
