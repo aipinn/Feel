@@ -9,15 +9,6 @@
 import Foundation
 import UIKit
 
-
-
-
-
-
-
-
-
-
 /*:
  ## Log
  
@@ -38,7 +29,7 @@ func printing<T>(_ message: T,
     #endif
 }
 
-
+//字体
 
 let NAMESPACE = Bundle.main.infoDictionary?["CFBundleExecutable"] as! String
 
@@ -48,10 +39,10 @@ let kScreenHeight = kScreenBounds.height
 
 //let X_Series: Bool = (UIDevice.current.type == .iPhoneX || UIDevice.current.type == .iPhoneXS || UIDevice.current.type == .iPhoneXR || UIDevice.current.type == .iPhoneXSMax)
 
-let kTopBarHeight = X_Series ? 88 : 44
-let kSatusBarHeight = X_Series ? 44 : 20
-let kTabBarHeight = X_Series ? 83 : 49
-let kBottomSpace = X_Series ? 34 : 0
+let kTopBarHeight = CGFloat(X_Series ? 88.0 : 44.0)
+let kSatusBarHeight = CGFloat(X_Series ? 44.0 : 20.0)
+let kTabBarHeight = CGFloat(X_Series ? 83.0 : 49.0)
+let kBottomSpace = CGFloat(X_Series ? 34.0 : 0.0)
 
 
 // 第一种

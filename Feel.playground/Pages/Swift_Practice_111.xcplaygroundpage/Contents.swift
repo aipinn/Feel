@@ -319,6 +319,7 @@ class Foo {
 class Baz {
     func baz() {
         print(Foo().fileprivateBtn)
+        
     }
 }
 
@@ -329,6 +330,20 @@ extension Foo {
     }
 }
 
+class Tool: Foo {
+    func subFoo() {
+        print(fileprivateBtn)
+        //print(privateBtn)
+    }
+}
+
 //: 但是将Baz和extension Foo的部分移动到别的文件的话,就无法编译了.
+/*:
+ public与open的区别:
+    只有被open标记的内容才能在别的框架中被继承或者重写.
+    如果只希望框架的用户使用某个类型或者方法,而不希望他们继承或重写的话使用public
+ */
+
+//:>移步One.swift Two.swift查看
 
 

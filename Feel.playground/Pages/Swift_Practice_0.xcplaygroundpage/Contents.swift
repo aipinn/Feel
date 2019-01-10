@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import UIKit
 
 var str = "Hello, playground"
 
@@ -337,6 +338,107 @@ ClassMy().methodMustBeImplementedInSubClass()
 
 /*:
  ## 代码组织和Framework
+ 
+ Apple为了iOS平台的安全性考虑,是不允许动态链接非系统框架的. 因此在app开发中我们所使用的第三方框架如果是以库文件的范式提供的话, 一定都是需要链接并打包进最后的二进制可执行文件中的静态库.最初级和原始的静态库是以`.a`的二进制文件并加上一些`.h`的头文件进行定义的形式提供的,这样的静态库在使用的时候比较麻烦,我们除了将其添加到项目和配置链接外,还需要指明头文件e位置等工作. 这样造成的结果不仅是添加起来麻烦,而且因为头文件路径可能在不同的环境中存在不一样的情况,而造成项目无法编译.
+ 
+ 而Apple自己的框架都是以`.framework`为后缀的动态框架,我们在使用的时候,只需要在target配置时进行实名就可以,非常方便.
+ 因为framework的易用性，因此很多开发者都很喜欢类似的“即拖即用，无需配置”的体验。一些框架和库的开发者为了使用体验一般会用一些第三方提供的方法来模拟地生成行为类似的框架，比如Dropbox或者Facebook的iOS SDK都是基于这种技术完成的。
+ > 但是,要特别指出,虽然和Apple的框架的后缀名一样是`.framework`,使用方式也类似,但是这些第三方是是实实在在的静态库,每个app需要在编译的时候进行独立的链接.
+ 
+ 从Xcode6开始,Apple官方提供了单独制作的类似的framework的方法,这种便利性可能使代码的组织方式发生重大变化.我们现在可以添加新的类型为CocoaTouchFramework的target,并在同一个项目中通过import这个target的module名字(一般和这个target的名字一样的,除非使用了向杠`-`这样在module中非法字符)来引入并进行使用.
+ 
+ * 1. 新创建一个Cocoa Touch Framework项目,eg:HelloKit,然后添加一个Swift文件,写一些内容,eg:
+ ```
+     public class Hello {
+         public class func sayHello() {
+         print("Hello Kit")
+         }
+     }
+ ```
+ * 2. 分别使用模拟器和真机进行Profiling编译. 命令: `cmd+shift+i`
+ * 3. 在项目生成的数据文件夹中可以找到`Hello.framework`,eg:
+    `Build/Products/Release-iphonesimulator/Hello.framework`
+ ```
+     emoji:Products penn$ pwd
+     /Users/penn/Library/Developer/Xcode/DerivedData/HelloKit-edtvjjflaagiqhfdxynofibzvlsc/Build/Products
+     emoji:Products penn$ ls
+     Debug-iphoneos        HelloKit        Release-iphonesimulator
+     Debug-iphonesimulator    Release-iphoneos
+     emoji:Products penn$
+ ```
+ * 4. 将`Hello.framework`拖到新的Xcode项目中,勾选Copy items if needed.
+ * 5. 和使用其他框架略有不同,最后一步还需要在编译的时候将这个框架复制到项目包中.在Build Phases选项里添加一个Copy File的阶段,然后将目标设置为Frameworks,将HelloKit.framework添加进来,以指定IDE在编译的时候进行复制.
+ * 6. 现在可以使用,模拟器下编译,运行eg:
+ 
+ ```
+ import UIKit
+ import HelloKit
+ 
+ //@UIApplicationMain
+ class AppDelegate: UIResponder, UIApplicationDelegate {
+ 
+ var window: UIWindow?
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+ // Override point for customization after application launch.
+
+     真机下运行报错:
+     dyld: Library not loaded: @rpath/HelloKit.framework/HelloKit
+     Referenced from: /Users/penn/Library/Developer/CoreSimulator/Devices/4D49FCD0-CA52-422C-AC32-8F7359BD40F2/data/Containers/Bundle/Application/597DDFFD-42E2-4A2F-94D3-F82691CE4229/Feel.app/Feel
+     Reason: image not found
+
+     Hello.sayHello()
+ 
+     return true
+ }
+ ```
+ * 7. 刚才的只是模拟器版本,换成真机发生上述注释中的错误.接下来需要制作真机版本并进行合并.
+ 
+ ```
+ emoji:~ penn$ cd /Users/penn/Library/Developer/Xcode/DerivedData/HelloKit-edtvjjflaagiqhfdxynofibzvlsc/Build/Products
+ emoji:Products penn$ lipo -create -output HelloKit \
+ > Release-iphoneos/HelloKit.framework/HelloKit \
+ > Release-iphonesimulator/HelloKit.framework/HelloKit
+ emoji:Products penn$ lipo -create -output HelloKit Release-iphoneos/HelloKit.framework/HelloKit Release-iphonesimulator/HelloKit.framework/HelloKit
+ ```
+ * 8. 用新生成的Hellokit可执行文件替换目录
+ `/Build/Products/Release-iphoneos/HelloKit.framework/`下的HelloKit文件.
+ 并复制`/Build/Products/Release-iphoneos/HelloKit.framework/Modules/HelloKit.swiftmodule`下的arm64.swiftmodule和arm.module文件到`/Build/Products/Release-iphonesimulator/HelloKit.framework/Modules/HelloKit.swiftmodule`,此时`HelloKit.swiftmodule`下应该包含4个swiftmodule文件:`arm.swiftmodule` `arm64.swiftmodule` `i386.swiftmodule` `x86_64.swiftmodule`.
+ * 9. 至此,`Release-iphonesimulator`下的`HelloKit.framework`就是通用的HelloKit框架,替换掉我们要使用的项目中的HelloKit就可以正常使用了.
+ 
  */
 
 
+/*:
+ ## 安全的资源组织方式
+ 
+ 以前我们使用字符串生成图片,但是当图片名字发生改变时需要全部替换,为代码维护增加了压力.
+ 虽然可以通过全局替换来解决,但仍不是理想的办法.
+ OC中可以使用宏来定义,可以更加方便,但是仍然没有改变本质.
+ 
+ swift中可以使用rawValue为String的enum类型生成字符串, 然后通过为资源类型提那家合适的extension来让编辑器帮助我们在代码中做相应的更改.
+ */
+
+//:eg:
+let image = UIImage(named: "some_image")
+
+enum ImageName: String {
+    case someImage = "some_image"
+}
+
+extension UIImage {
+    convenience init(imageName: ImageName) {
+        self.init(named: imageName.rawValue)
+    }
+}
+
+extension UIViewController {
+    let image = UIImage(imageName: .someImage)
+}
+
+
+/*:
+ 更好的办法请参考:
+ https://github.com/mac-cain13/R.swift
+ https://github.com/SwiftGen/SwiftGen
+ */

@@ -18,7 +18,7 @@ import UIKit
 class PNApplication: UIApplication {
     override func sendEvent(_ event: UIEvent) {
         super.sendEvent(event)
-        print("Event sent: \(event)")
+        //print("Event sent: \(event)")
     }
 }
 
