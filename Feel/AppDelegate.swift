@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HelloKit
 
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
-        
+        //自己制作的框架
+        /*
+         dyld: Library not loaded: @rpath/HelloKit.framework/HelloKit
+         Referenced from: /Users/penn/Library/Developer/CoreSimulator/Devices/4D49FCD0-CA52-422C-AC32-8F7359BD40F2/data/Containers/Bundle/Application/597DDFFD-42E2-4A2F-94D3-F82691CE4229/Feel.app/Feel
+         Reason: image not found
+         
+         */
+        Hello.sayHello()
         
         return true
     }

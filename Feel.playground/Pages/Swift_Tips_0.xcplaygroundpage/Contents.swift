@@ -30,7 +30,313 @@ let manager = DataManager()
 manager.data.append("Some data")
 manager.data.append("Some more data")
 
-// 操作符
+/*:
+ ## 柯里化(Currying)
+ */
+
+func addOne(num: Int) -> Int {
+    return num + 1
+}
+
+func addTo(_ adder: Int) ->(Int) -> Int {
+    return {
+        num in
+        return num + adder
+    }
+}
+let addTwo = addTo(2)
+let result = addTwo(6)
+
+//: 另一个例子
+func greaterThan(_ comparer: Int) -> (Int) -> Bool {
+    return { $0 > comparer }
+}
+
+let greaterThan10 = greaterThan(10)
+greaterThan10(12)
+greaterThan10(3)
+
+//: 实际应用Selector
+protocol TargetAction {
+    func performAction()
+}
+
+struct TargetActionWrapper<T: AnyObject>: TargetAction {
+    
+    weak var target: T?
+    let action: (T) -> () -> ()
+    
+    func performAction() -> () {
+        if let t = target {
+            action(t)()
+        }
+    }
+}
+
+enum ControlEvent {
+    case TouchUpInside
+    case ValueChanged
+    //...
+}
+
+class Control {
+    var actions = [ControlEvent: TargetAction]()
+    
+    func setTarget<T: AnyObject>(target: T,
+                                 action: @escaping(T) -> () -> (),
+                                 controlEvent: ControlEvent) {
+        actions[controlEvent] = TargetActionWrapper(target: target, action: action)
+    }
+    func removeTargetForControlEvent(controlEvent: ControlEvent) {
+        actions[controlEvent] = nil
+    }
+    func performActionForControlEvent(contolEvent: ControlEvent) {
+        actions[contolEvent]?.performAction()
+    }
+}
+//: 使用
+class MyViewController {
+    let button = Control()
+
+    func viewDidLoad() {
+        button.setTarget(target: self,
+                         action: MyViewController.onButtonTap,
+                         controlEvent: .TouchUpInside)
+
+    }
+    func onButtonTap() {
+        print("Button was tapped")
+    }
+}
+
+
+class Mark {
+    func look() {
+        print("Looking...")
+    }
+    class func drinking () {
+        print("driking...")
+    }
+    static func playing() {
+        print("playing...")
+    }
+}
+
+Mark.drinking()
+Mark().look()
+Mark.playing()
+
+/*:
+ ## 将protocol的方法声明为mutating
+ 
+ Swift中的mutating关键字修饰方法是为了能够在该方法中修改struct或enum的变量,所以如果你没有在协议方法中写mutating的话,
+ 别人如果用struct和enum来实现这个协议的话,就不能再协议方法中修改自己的变量了
+ */
+
+protocol Vehicle {
+    var numberOfWheels: Int { get }
+    var color: UIColor { get set }
+    
+    mutating func changColor()
+    
+}
+
+struct MyCar: Vehicle {
+    var numberOfWheels = 4
+    var color = UIColor.blue
+    var seat: Int
+    mutating func changColor() {
+        color = .red
+    }
+    mutating func change() {
+        numberOfWheels = 5
+    }
+    mutating func changeSeat() {
+        seat = 4
+    }
+}
+
+
+/*:
+ ## @autoclosure和??
+ @autoclosure做的事情就是把一句表达式自动的封装成一个闭包
+ 
+ * autoclosure
+ */
+
+func logIfTure(_ predicate: () -> Bool) {
+    if predicate() {
+        print("True")
+    }
+}
+
+//: 调用
+
+//自动填充
+logIfTure { () -> Bool in
+   return 2 < 3
+}
+//没有参数省去in
+logIfTure { return 2 < 3 }
+//省掉return
+logIfTure({ 2 < 3 })
+//因为闭包是最后一个参数,可以使用尾随闭包的方法
+logIfTure{ 2 < 3 }
+//使用autoclosure
+func logIfTure_new(_ predicate: @autoclosure () -> Bool) {
+    if predicate() {
+        print("Ture new")
+    }
+}
+//此时调用方式:
+logIfTure_new(2 < 3)
+/*:
+ Swift将会把2<3这个表达式自动转换为()->Bool.
+ */
+
+/*:
+ * ??
+ 和三目中`?:`相同, 其实现本质使用了@autoclosure
+ */
+
+var level: Int?
+var startLevel = 1
+
+var currentLevel = level ?? startLevel
+
+
+/*:
+ ## @escaping
+ */
+func dowork(block: ()->()) {
+    block()
+}
+
+dowork {
+    print("work")
+}
+
+func doworkAsync(block: @escaping ()->()) {
+    DispatchQueue.main.async {
+        block()
+    }
+}
+
+class Mars {
+    var foo = "foo"
+    
+    func method1() {
+        dowork {
+            print(foo)
+        }
+        foo = "bar"
+    }
+    
+    func method2() {
+        doworkAsync {
+            print(self.foo)
+        }
+        foo = "bar"
+    }
+    
+    func method3() {
+        doworkAsync {
+            [weak self] in
+            print(self?.foo ?? "--nil--")
+        }
+        print("1")
+    }
+}
+
+Mars().method1()
+Mars().method2()
+Mars().method3()
+
+protocol ppp {
+    func work(b: @escaping ()->())
+}
+
+class Jupiter: ppp {
+    func work(b: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            print("in C")
+            b()
+        }
+    }
+}
+Jupiter().work {
+    
+}
+class Jupiter1: ppp {
+    func work(b: () -> ()) {
+        b()
+        print("iiii")
+    }
+}
+
+Jupiter1().work {
+    
+}
+
+
+/*:
+ ## Optional Chaining
+ 可以让我们摆脱很多不必要的判断和取值, 但是在使用的时候需要小心陷阱.
+ 因为Optional Chaining是随时都可能提前返回nil的,所以使用Optional Chaining所得到的东西都是Optional的.
+ */
+
+class Toy {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Pet {
+    var toy: Toy?
+}
+class Child {
+    var pet: Pet?
+}
+let xiaoming = Child()
+let cat = Pet()
+let woolen = Toy(name: "woolen")
+cat.toy = woolen
+xiaoming.pet = cat
+//: 虽然我们最后访问的是name,在Toy中name是被定义的一个确定的String而非String?,但是toyName其实依然是一个String?的类型.
+let toyName = xiaoming.pet?.toy?.name
+if let toyname = xiaoming.pet?.toy?.name {
+    print(toyname)
+} else {
+    print("none")
+}
+//: 另一个栗子
+extension Toy {
+    func play() {
+        print("is playing")
+    }
+}
+
+let some: ()? = xiaoming.pet?.toy?.play()// let some: ()?
+
+//: 如果对其抽象出来,做一个闭包方便传入不同的对象以供方便调用,可能会写出下面的代码,是错误的:
+let pc = {(child: Child) -> () in child.pet?.toy?.play()}
+/*:
+ 原因在于对play()的调用上,定义的时候我们没有写play()的返回,这表示这个方法返回void(或者是一对小括号(),它们是等价的).但是对于上面的情况,经过Optional Chaining以后我们得到的是一个Optional的结果.正确的写法如下:
+ */
+let playClosure = { (child: Child) -> ()? in child.pet?.toy?.play()}
+
+if let _: () = playClosure(xiaoming) {
+    print("happy")
+} else {
+    print("No toys")
+}
+
+
+
+/*:
+ ## 操作符
+ */
 struct Vector2D {
     var x = 0.0
     var y = 0.0
@@ -47,7 +353,7 @@ func +(left: Vector2D, right: Vector2D) -> Vector2D {
 let v4 = v1 + v2
 
 
-// +*
+//: +*
 
 precedencegroup DotProductPrecedence {
     associativity: none

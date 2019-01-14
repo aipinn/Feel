@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import UIKit
 
 var str = "Hello, playground"
 
@@ -377,3 +378,68 @@ class ChildKVOClass: KVOClass {
         set { super.name = newValue }
     }
 }
+
+/*:
+ ## 局部scope
+ 
+ C系语言中接收大括号{}来隔开代码防止一个方法中多个命名类似的变量被误用,而swift不支持,因为这和闭包的定义冲突.如果想用泪滴的局部scope来分割代码的话,可以定义一个接收()->()作为函数的全局方法然后执行它:
+ */
+
+func local(_ closure: ()->()) {
+    closure()
+}
+
+//: * 使用时可以利用尾随闭包的特性模拟局部scope:
+func loadView() {
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    view.backgroundColor = .red;
+    
+    local {
+        let titleLable = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 30));
+        titleLable.textColor = .blue
+        titleLable.text = "Title"
+        view.addSubview(titleLable)
+    }
+    local {
+        let textLable = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 30));
+        textLable.textColor = .blue
+        textLable.text = "Text"
+        view.addSubview(textLable)
+    }
+    //self.view = view
+}
+
+//: * swift2.0中为了异常处理,Apple加入了do这个关键字来作为捕获异常的作用域.这一功能签好为我们提供了一个完美的局部作用域.
+do {
+    let titleLable = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 30));
+    titleLable.textColor = .blue
+    titleLable.text = "Title"
+    //view.addSubview(titleLable)
+}
+
+do {
+    let textLable = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 30));
+    textLable.textColor = .blue
+    textLable.text = "Text"
+    //view.addSubview(textLable)
+}
+
+/*:
+ * 在Objective-C中海油一个很棒的技巧是使用GNU C的声明扩展来在局部作用域的时候同时进行赋值,运用得当的或回事代码更加紧凑
+ 整洁.比如上面的titleLabel如果如果我们需要保留一个引用的话,在OC中可以这样写:
+ self.titleLabel = (大括号
+     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+     label.text = @"hint";
+     label.textColor = [UIColor redColor];
+     [self.view addSubview:label];
+     label;
+ 大括号);
+ swift中没有GNU C的扩展,但是使用匿名闭包的话,可以写出类似的代码.
+ */
+
+let titleLable: UILabel = {
+    let label = UILabel(frame: CGRect(x:0, y:0, width: 100, height: 40))
+    label.textColor = .red
+    label.text = "title"
+    return label
+}()

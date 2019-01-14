@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Feel.playground">
+   </FileRef>
+   <FileRef
       location = "group:Feel.xcodeproj">
    </FileRef>
    <FileRef
