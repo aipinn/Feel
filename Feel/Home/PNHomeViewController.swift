@@ -26,7 +26,12 @@ class PNHomeViewController: BaseViewController {
         configTableView()
         setupUI()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.shadowImage = nil
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+    }
 }
 
 //MARK: - Delegate

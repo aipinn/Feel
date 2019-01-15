@@ -18,9 +18,9 @@ class BaseNavigationController: UINavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count == 1 {
-            hidesBottomBarWhenPushed = true
+            viewController.hidesBottomBarWhenPushed = true
         } else {
-            hidesBottomBarWhenPushed = false
+            viewController.hidesBottomBarWhenPushed = false
         }
         super.pushViewController(viewController, animated: animated)
     }
