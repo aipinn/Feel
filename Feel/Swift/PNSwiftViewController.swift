@@ -17,6 +17,8 @@ class PNSwiftViewController: BaseViewController {
         btn.backgroundColor = UIColor.red
         btn.titleLabel?.text = "Appliction"
         view.addSubview(btn)
+        
+        
     }
     
 }
