@@ -109,4 +109,13 @@ public extension String {
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         return predicate.evaluate(with: self)
     }
+    
+    /// 是否是11位数字
+    ///
+    /// - Returns: 是否
+    func isPhoneNum11() -> Bool {
+        let regex = "^[\\d]{11}?"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return  predicate.evaluate(with: self)
+    }
 }
