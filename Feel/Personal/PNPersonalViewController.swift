@@ -29,9 +29,9 @@ class PNPersonalViewController: BaseViewController {
 extension PNPersonalViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-        if let text = textField.text, text.isNumberAndLetter() {
-             text.isLowerUpperLetterAndNumberRange(2, 6)
-            return false;
+        if string == "W" {
+            let vc = PNWebController()
+            navigationController?.pushViewController(vc, animated: true)
         }
         return true
     }
