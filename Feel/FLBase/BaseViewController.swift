@@ -14,18 +14,14 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         let rand = CGFloat(arc4random() % 10+5)
         view.backgroundColor = UIColor(white: CGFloat(rand/10.0), alpha: 1)
-        // Do any additional setup after loading the view.
+        setupUI()
+        
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+@objc extension BaseViewController {
+    public func setupUI() {
+        
     }
-    */
-
 }

@@ -21,6 +21,7 @@ target 'Feel' do
   pod 'Alamofire'
   pod 'Masonry'
   pod 'SnapKit'
+  pod 'Toast'
 
 
 end

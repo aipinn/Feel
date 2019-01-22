@@ -13,8 +13,12 @@ class PNHomeViewController: BaseViewController {
     private var tableView: UITableView?
     lazy var dataSource: [String] = {
         var array:[String] = Array()
-        for _ in 1...20 {
-            array.append("PNTransViewController")
+        for i in 1...20 {
+            if i == 1 {
+                array.append("PNWebViewController")
+            } else {
+                array.append("PNTransViewController")
+            }
         }
         return array
     }()
@@ -64,9 +68,7 @@ extension PNHomeViewController {
         view.addSubview(tableView!)
     }
     
-    func setupUI() {
-        
-    }
+
 }
 
 

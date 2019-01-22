@@ -2,23 +2,27 @@ PODS:
   - Alamofire (4.7.2)
   - Masonry (1.1.0)
   - SnapKit (4.2.0)
+  - Toast (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Masonry
   - SnapKit
+  - Toast
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Masonry
     - SnapKit
+    - Toast
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 8a214b397d6bd0b848b5afdb5048e174c5836d83
+PODFILE CHECKSUM: 39df44a6ccf9b735015a8489c74ecf7e6731a1f8
 
 COCOAPODS: 1.5.3
