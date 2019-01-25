@@ -3,12 +3,14 @@ PODS:
   - Masonry (1.1.0)
   - SnapKit (4.2.0)
   - Toast (4.0.0)
+  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
   - Alamofire
   - Masonry
   - SnapKit
   - Toast
+  - WebViewJavascriptBridge
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - Masonry
     - SnapKit
     - Toast
+    - WebViewJavascriptBridge
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: 39df44a6ccf9b735015a8489c74ecf7e6731a1f8
+PODFILE CHECKSUM: 7487bab0a76eec620ee5f7ad3afe48078c4598ed
 
 COCOAPODS: 1.5.3

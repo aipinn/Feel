@@ -216,9 +216,9 @@ func delay(_ time: TimeInterval, task: @escaping ()->()) -> Task? {
     var result: Task?
     
     let delayedClosure: Task = {
-        cancle in
+        cancel in
         if let internalClosure = closure {
-            if cancle == false {
+            if cancel == false {
                 DispatchQueue.main.async(execute: internalClosure)
             }
         }
@@ -235,7 +235,7 @@ func delay(_ time: TimeInterval, task: @escaping ()->()) -> Task? {
     return result
 }
 
-func cancle(_ task: Task?) {
+func cancel(_ task: Task?) {
     task?(true)
 }
 //: 使用
@@ -245,7 +245,7 @@ delay(2) {
 let task = delay(5) {
     print("拨打110")
 }
-cancle(task)
+cancel(task)
 
 /*:
  ## 获取对象类型

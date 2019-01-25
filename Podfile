@@ -22,6 +22,6 @@ target 'Feel' do
   pod 'Masonry'
   pod 'SnapKit'
   pod 'Toast'
-
+  pod 'WebViewJavascriptBridge'
 
 end

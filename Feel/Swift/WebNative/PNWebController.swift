@@ -17,13 +17,13 @@ class PNWebController: BaseViewController {
 
         webView = WKWebView(frame: kScreenBounds)
         view.addSubview(webView!)
-        //加载本地文件
+        //WKWebView加载本地文件
         do {
-//            //1.Create Groups类型文件夹使用Bundle.main.url方式
-//            let path = Bundle.main.url(forResource: "H1", withExtension: "html")
-//            guard let url = path  else { return }
-//            let request = URLRequest(url: url)
-//            webView?.load(request)
+            //1.Create Groups类型文件夹使用Bundle.main.url方式
+            let path = Bundle.main.url(forResource: "H1", withExtension: "html")
+            guard let url = path  else { return }
+            let request = URLRequest(url: url)
+            webView?.load(request)
         }
         do {
             //2.Create Folder References类型文件夹使用Bundle.main.bundlePath方式,文件路径大小写敏感
@@ -35,10 +35,6 @@ class PNWebController: BaseViewController {
             let request = URLRequest(url: url)
             webView?.load(request)
         }
-        
-
     }
-    
-
 }
 
