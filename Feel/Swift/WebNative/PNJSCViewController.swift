@@ -10,13 +10,11 @@ import UIKit
 import WebKit
 import JavaScriptCore
 
-class PNJSCViewController: BaseViewController {
+class PNJSCViewController: PNWebBaseViewController {
 
-    private var webView: UIWebView?
-    private var wkWebView: WKWebView?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fileName2 = "index2"
     }
 
     deinit {
@@ -33,6 +31,7 @@ extension PNJSCViewController {
         addLocation(context)
         addShare(context)
         addSetColor(context)
+        addGoback(context)
     }
     
     func addScan(_ context: JSContext) {
@@ -78,18 +77,25 @@ extension PNJSCViewController {
         }
         context.setObject(unsafeBitCast(block, to: AnyObject.self), forKeyedSubscript: "setColor" as NSCopying & NSObjectProtocol)
     }
-    
+    func addGoback(_ context: JSContext) {
+        let block: @convention(block) ()->() = {
+            DispatchQueue.main.async {
+                
+            }
+        }
+        context.setObject(unsafeBitCast(block, to: AnyObject.self), forKeyedSubscript: "goback" as NSCopying & NSObjectProtocol)
+    }
     //..........dengdeng
     
 }
 
-extension PNJSCViewController: UIWebViewDelegate {
+extension PNJSCViewController {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         addActions()
     }
 }
 
-extension PNJSCViewController: WKUIDelegate, WKNavigationDelegate {
+extension PNJSCViewController {
  
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         //JS是在webThread的子线程
@@ -98,44 +104,4 @@ extension PNJSCViewController: WKUIDelegate, WKNavigationDelegate {
         //addActions()
     }
 }
-extension PNJSCViewController {
-    override func setupUI() {
-        
-        do {
-            let fileUrl = Bundle.main.url(forResource: "index2", withExtension: "html")
-            guard let url = fileUrl else {
-                return
-            }
-            let request = URLRequest(url: url)
-            webView = UIWebView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight/2))
-            webView?.loadRequest(request)
-            webView?.scrollView.decelerationRate = .normal
-            webView?.delegate = self
-            //view.addSubview(webView!)
-        }
-        
-        do {
-            //加载本地HTML
-            let fileUrl = Bundle.main.url(forResource: "index2", withExtension: "html")
-            guard let url = fileUrl else {
-                return
-            }
-            let request = URLRequest(url: url)
-            
-            let configuration = WKWebViewConfiguration()
-            configuration.userContentController = WKUserContentController()
-            let preferences = WKPreferences()
-            preferences.javaScriptCanOpenWindowsAutomatically = true
-            preferences.minimumFontSize = 30.0
-            configuration.preferences = preferences
-            
-            wkWebView = WKWebView(frame: CGRect(x: 0, y: kScreenHeight/2+20, width: kScreenWidth, height: kScreenHeight/2 - 20), configuration: configuration)
-            wkWebView?.backgroundColor = .gray
-            wkWebView?.load(request)
-            wkWebView?.uiDelegate = self
-            wkWebView?.navigationDelegate = self
-            view.addSubview(wkWebView!)
-        
-        }
-    }
-}
+
