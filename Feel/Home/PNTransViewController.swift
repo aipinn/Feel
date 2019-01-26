@@ -17,7 +17,6 @@ class PNTransViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUI()
     }
     
     @objc func buttonSelected() {
@@ -44,7 +43,7 @@ class PNTransViewController: BaseViewController {
 }
 
 extension PNTransViewController {
-    func setupUI() {
+    override func setupUI() {
         view.backgroundColor = .cyan
     
         let topView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 300))

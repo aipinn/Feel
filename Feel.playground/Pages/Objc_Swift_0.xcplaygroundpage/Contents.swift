@@ -228,7 +228,7 @@ class 我的类: NSObject {
 /*:
  ## 可选协议和协议扩展
  * 可选协议
- OC中的@ioptional决定可选实现协议,swift必须全部实现.
+ OC中的@optional决定可选实现协议,swift必须全部实现.
  使用@objc的协议只能被class实现,也就是说对于struct和enum是所实现的协议是无法包含可选方法的.
  另外,实现协议的class必须添加@objc或者继承自NSObject
  */
