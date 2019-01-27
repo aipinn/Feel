@@ -16,7 +16,7 @@ class PNWJBViewController: PNWebBaseViewController {
     private var webViewBrige: WebViewJavascriptBridge?
     override func viewDidLoad() {
         super.viewDidLoad()
-        fileName1 = "index4"
+        //fileName1 = "index4"
         fileName2 = "index4"
 
         setupBridge()

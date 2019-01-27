@@ -20,6 +20,7 @@ class PNWebBaseViewController: BaseViewController {
             guard let url = fileUrl else {
                 return
             }
+            view.addSubview(wkWebView!)
             let request = URLRequest(url: url)
             wkWebView?.load(request)
         }
@@ -30,6 +31,7 @@ class PNWebBaseViewController: BaseViewController {
             guard let filePath = str, let url = URL(string: filePath) else {
                 return
             }
+            view.addSubview(webView!)
             let request = URLRequest(url: url)
             webView?.loadRequest(request)
         }
@@ -46,6 +48,11 @@ class PNWebBaseViewController: BaseViewController {
 
 extension PNWebBaseViewController {
     override func setupUI() {
+        AddWebView()
+        
+    }
+    
+    func AddWebView() {
         do {
             
             let configuration = WKWebViewConfiguration()
@@ -58,19 +65,16 @@ extension PNWebBaseViewController {
             wkWebView = WKWebView(frame: CGRect(x: 0, y: 100, width: kScreenWidth, height: kScreenHeight/2 - 20), configuration: configuration)
             wkWebView?.uiDelegate = self
             wkWebView?.navigationDelegate = self
-            view.addSubview(wkWebView!)
+            
         }
         
         do {
-
+            
             webView = UIWebView(frame: CGRect(x: 0, y: kScreenHeight/2 + 20, width: kScreenWidth, height: kScreenHeight/2 - 20))
             webView?.backgroundColor = .cyan
-            
             webView?.delegate = self
-            view.addSubview(webView!)
             
         }
-        
     }
 }
 

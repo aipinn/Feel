@@ -12,8 +12,6 @@ import JavaScriptCore
 
 class PNWebNativeController: PNWebBaseViewController {
 
-//    private var wkWebView: WKWebView?
-//    private var webView: UIWebView?
     override func viewDidLoad() {
         super.viewDidLoad()
         fileName1 = "First"

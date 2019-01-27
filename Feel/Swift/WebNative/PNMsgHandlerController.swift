@@ -31,9 +31,8 @@ extension PNWKType: EnumerableEnum {
     }
 }
 
-class PNMsgHandlerController: BaseViewController {
+class PNMsgHandlerController: PNWebBaseViewController {
     var observation: NSKeyValueObservation?
-    private var wkWebView: WKWebView?
     private var progressView: UIProgressView?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,51 +74,32 @@ class PNMsgHandlerController: BaseViewController {
 
 extension PNMsgHandlerController {
     override func setupUI() {
-        do {
-            // 加载本地HTML
-            let fileUrl = Bundle.main.url(forResource: "index1", withExtension: "html")
-            guard let url = fileUrl else {
+        super.setupUI()
+        fileName1 = "index1"
+
+        // 加载进度
+        progressView = UIProgressView(frame: CGRect(x: 0, y: kTopBarHeight, width: kScreenWidth, height: 5))
+        progressView?.backgroundColor = .blue
+        view.addSubview(progressView!)
+        observation = wkWebView?.observe(\WKWebView.estimatedProgress, options: [.old, .new], changeHandler: {[unowned self] _, new in
+            guard let newV = new.newValue else {
                 return
             }
-            let request = URLRequest(url: url)
+            self.progressView?.setProgress(Float(newV), animated: true)
+            if newV == 1 {
+                self.progressView?.setProgress(1.0, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
+                    self.progressView?.setProgress(Float(newV), animated: true)
+                    self.progressView?.isHidden = true
+                })
+            }
 
-            let config = WKWebViewConfiguration()
-            let pref = WKPreferences()
-            pref.javaScriptCanOpenWindowsAutomatically = true
-            pref.javaScriptEnabled = true
-            pref.minimumFontSize = 40
-            config.preferences = pref
-
-            wkWebView = WKWebView(frame: kScreenBounds, configuration: config)
-            wkWebView?.load(request)
-            wkWebView?.uiDelegate = self
-            view.addSubview(wkWebView!)
-        }
-
-        do {
-            // 加载进度
-            progressView = UIProgressView(frame: CGRect(x: 0, y: kTopBarHeight, width: kScreenWidth, height: 5))
-            progressView?.backgroundColor = .blue
-            view.addSubview(progressView!)
-            observation = wkWebView?.observe(\WKWebView.estimatedProgress, options: [.old, .new], changeHandler: {[unowned self] _, new in
-                guard let newV = new.newValue else {
-                    return
-                }
-                self.progressView?.setProgress(Float(newV), animated: true)
-                if newV == 1 {
-                    self.progressView?.setProgress(1.0, animated: true)
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
-                        self.progressView?.setProgress(Float(newV), animated: true)
-                        self.progressView?.isHidden = true
-                    })
-                }
-
-            })
-        }
+        })
     }
+    
 }
 
-extension PNMsgHandlerController: WKUIDelegate {
+extension PNMsgHandlerController {
     // Provisional临时
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
     }

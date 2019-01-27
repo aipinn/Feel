@@ -24,46 +24,6 @@ class PNURLViewController: PNWebBaseViewController {
 }
 
 extension PNURLViewController {
-//    override func setupUI() {
-//
-//        do {
-//            let str = Bundle.main.path(forResource: "index3", ofType: "html")
-//            guard let filePath = str, let url = URL(string: filePath) else {
-//                return
-//            }
-//            let request = URLRequest(url: url)
-//            webView = UIWebView(frame: CGRect(x: 0, y: kScreenHeight/2 + 20, width: kScreenWidth, height: kScreenHeight/2 - 20))
-//            webView?.backgroundColor = .cyan
-//            webView?.loadRequest(request)
-//            webView?.delegate = self
-//            view.addSubview(webView!)
-//        }
-//        do {
-//            //加载本地HTML
-//            let fileUrl = Bundle.main.url(forResource: "index3", withExtension: "html")
-//            guard let url = fileUrl else {
-//                return
-//            }
-//            let request = URLRequest(url: url)
-//
-//            let configuration = WKWebViewConfiguration()
-//            configuration.userContentController = WKUserContentController()
-//            let preferences = WKPreferences()
-//            preferences.javaScriptCanOpenWindowsAutomatically = true
-//            preferences.minimumFontSize = 30.0
-//            configuration.preferences = preferences
-//
-//            wkWebView = WKWebView(frame: CGRect(x: 0, y: 100, width: kScreenWidth, height: kScreenHeight/2 - 20), configuration: configuration)
-//            wkWebView?.backgroundColor = .gray
-//            wkWebView?.load(request)
-//            wkWebView?.uiDelegate = self
-//            wkWebView?.navigationDelegate = self
-//            view.addSubview(wkWebView!)
-//
-//
-//        }
-//    }
-    
     
     func handleAction(_ url: URL) {
         guard let host = url.host else { return }
@@ -113,7 +73,11 @@ extension PNURLViewController {
 extension PNURLViewController {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+        webView.evaluateJavaScript("var arr = [3, 4, 'abc']") { (result, error) in
+            if error != nil {
+                print(result!)
+            }
+        }
     }
     
     //实现此方法必须调用decisionHandler()这个闭包,否则崩溃;

@@ -39,7 +39,6 @@
 		3DA5F4BF21E75E060010688D /* HelloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA5F4BE21E75E060010688D /* HelloKit.framework */; };
 		3DA5F4C121E837780010688D /* HelloKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DA5F4BE21E75E060010688D /* HelloKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CB69FE27580D73F602EE8D3 /* Pods_FeelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30677AB72A8F2D644084AD53 /* Pods_FeelUITests.framework */; };
-		BC0AB61E21F614D7001A4F0E /* PNWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0AB61D21F614D7001A4F0E /* PNWebController.swift */; };
 		BC0AB62921F6244B001A4F0E /* html2 in Resources */ = {isa = PBXBuildFile; fileRef = BC0AB62821F6244B001A4F0E /* html2 */; };
 		BC49EEEA21A30181004F5959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49EEE921A30181004F5959 /* AppDelegate.swift */; };
 		BC49EEEC21A30181004F5959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49EEEB21A30181004F5959 /* ViewController.swift */; };
@@ -125,7 +124,6 @@
 		8FEA66AFAB9B14FA623E7857 /* Pods_Feel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A287BBD49F3E9DA8CCAFDF7F /* Pods-FeelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeelUITests/Pods-FeelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5BEC3DDA2296FEAEE6A6A26 /* Pods-Feel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feel/Pods-Feel.debug.xcconfig"; sourceTree = "<group>"; };
-		BC0AB61D21F614D7001A4F0E /* PNWebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNWebController.swift; sourceTree = "<group>"; };
 		BC0AB62821F6244B001A4F0E /* html2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html2; sourceTree = "<group>"; };
 		BC49EEE621A30181004F5959 /* Feel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49EEE921A30181004F5959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				BC0AB62821F6244B001A4F0E /* html2 */,
 				3D15B23B21F5A7FC002BA785 /* PNWebViewController.swift */,
 				3D15B24121F5EF30002BA785 /* PNWebNativeController.swift */,
-				BC0AB61D21F614D7001A4F0E /* PNWebController.swift */,
 				3D15B24A21F6C6DA002BA785 /* PNMsgHandlerController.swift */,
 				3D79A74F21F71B5B00BEEE07 /* PNJSCViewController.swift */,
 				3D79A75321F804E100BEEE07 /* PNURLViewController.swift */,
@@ -596,7 +593,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D07E73C21A3D71200C49924 /* PNHomeViewController.swift in Sources */,
-				BC0AB61E21F614D7001A4F0E /* PNWebController.swift in Sources */,
 				3D0CDD0D21F0819D00466FD3 /* UIColor+PNAdd.swift in Sources */,
 				3D15B24221F5EF30002BA785 /* PNWebNativeController.swift in Sources */,
 				3D07E74421A3FDA400C49924 /* Feel.swift in Sources */,
