@@ -14,10 +14,8 @@ class PNPersonalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            let vc = PNWebController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let btn = PNButton(image: "1", title: "浇水", frame: CGRect(x: 20, y: 100, width: 50, height: 80) )
+        view.addSubview(btn)
     }
     
 }
