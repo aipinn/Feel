@@ -1,10 +1,13 @@
 //: [Previous](@previous)
 
 import Foundation
+import UIKit
+import PlaygroundSupport
 
 var str = "Hello, playground"
 
 //: [Next](@next)
+
 
 extension Int {
     func randomArray(_ max: UInt32) -> [UInt] {
@@ -31,11 +34,6 @@ for j in 1...arr.count-1 {
         //移位(右移)
         arr[i+1] = arr[i]
         i = i - 1
-    }
-    //确定key的适当位置
-    arr[i+1] = key
-}
-arr
 
 var a = 3, b = 5
 (a, b)=(b, a)
@@ -61,3 +59,8 @@ for j in 0...selArr.count-1 {
 }
 
 selArr
+
+let btn = PNButton(image: "1", title: "浇水", frame: CGRect(x: 0, y: 0, width: 50, height: 80) )
+
+PlaygroundPage.current.liveView = btn
+

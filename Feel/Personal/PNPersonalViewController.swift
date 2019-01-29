@@ -13,10 +13,6 @@ class PNPersonalViewController: BaseViewController {
     var tableView: UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-       
-        }
     }
     
 }
