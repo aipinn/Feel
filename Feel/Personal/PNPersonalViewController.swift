@@ -15,8 +15,7 @@ class PNPersonalViewController: BaseViewController {
         super.viewDidLoad()
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            let vc = PNWebController()
-            self.navigationController?.pushViewController(vc, animated: true)
+       
         }
     }
     
