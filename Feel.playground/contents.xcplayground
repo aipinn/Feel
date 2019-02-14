@@ -24,5 +24,6 @@
         <page name='Swift_Practice_2'/>
         <page name='PredicateAndRegex'/>
         <page name='Algorithm'/>
+        <page name='InterviewQ'/>
     </pages>
 </playground>

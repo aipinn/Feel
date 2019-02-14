@@ -64,7 +64,7 @@ for i in 0...selArr.count - 1 {
 selArr
 /*:
  时间复杂度
- 
+ n^2
  */
 
 //: 冒泡排序
@@ -82,9 +82,50 @@ for i in 0...bubbling.count-1 {
 }
 
 bubbling
+/*:
+ 时间复杂度
+ n^2
+ */
 
 
 //: 归并排序
-func merge(arr:[Int], p: [Int], q: [Int], r: [Int]) {
+var new: [Int] = []
+for i in 0...7 {
+    new.append(i)
+}
+new = [2,4,5,7,1,2,3,6]
+func merge(_ arr: [Int], _ min: Int, _ mid: Int, _ max: Int) {
+    
+}
+merge(new, 0, 3, 7) {
+    
+}
+
+/*:
+ 时间复杂度
+ nlgn
+ */
+
+/*:
+ 快速排序(采用分治法)
+ 在时间复杂度为O(nlogn)中较快的方法
+ */
+
+func QuickSqrt(arr: [Int], left: Int, right: Int) {
+    var i = left
+    var j = right
+    //基数
+    var b = arr[0]
+    while i < j {
+        while j < i && arr[j] <= b {
+            j = j - 1
+        }
+        arr[i] = arr[j]
+    
+        while i < j && arr[i] >= b {
+            i = i + 1
+        }
+        arr[j] = arr[i]
+    }
     
 }
