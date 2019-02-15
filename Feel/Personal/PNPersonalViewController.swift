@@ -18,11 +18,63 @@ class PNPersonalViewController: BaseViewController {
 
         let btn = PNButton(image: "1", title: "浇水", frame: CGRect(x: 20, y: 100, width: 50, height: 80) )
         view.addSubview(btn)
+        
+        var arr: [Int] = [72, 6, 57, 88, 60, 42, 83, 73, 48, 85]
+        
+        QuickSqrt(&arr, 0, arr.count-1)
 
     }
     
-
     
+    //1.调整数组, 返回调整后的基数的位置
+    func AdjustArr(_ arr: inout [Int], _ left: Int, _ right: Int) -> Int {
+        var i = left
+        var j = right
+        //基数
+        let b = arr[0]
+        while i < j {
+        //自右向左查找比基数小的数
+        while i < j && arr[j] >= b {
+        j = j - 1
+        }
+        if (i < j) {
+        arr[i] = arr[j]
+        i = i + 1
+        }
+        //自左向右查找比基数大的数
+        while i < j && arr[i] <= b {
+        i = i + 1
+        }
+        if i < j {
+        arr[j] = arr[i]
+        j = j + 1
+        }
+        }
+        //确定基数的位置
+        if i == j {
+        arr[i] = b
+        }
+        return i
+    }
+    
+    //2.分治
+    func QuickSqrt(_ arr: inout [Int], _ left: Int, _ right: Int) {
+        print(left)
+        print(right)
+        print("--")
+        if left < right {
+        let idx = AdjustArr(&arr, left, right)
+        QuickSqrt(&arr, left, idx-1)
+        
+        QuickSqrt(&arr, idx+1, right)
+    
+    
+    }
+        
+        
+        
+    }
+
 }
 
 extension PNPersonalViewController: UITextFieldDelegate {

@@ -87,20 +87,85 @@ bubbling
  n^2
  */
 
+do {
+    //: 归并排序
+    var new: [Int] = []
+    for i in 0...7 {
+        new.append(i)
+    }
+    new = [2,4,5,7,1,2,3,6]
+    /*:
+     * 将一个数组的两个相邻有序区间合并成一个
+     arr: 包含两个有序区间的数组
+     low: 第一个有序区间的起始地址
+     mid: 第一个有序区间的结束地址,也是第二个有序区间的起始地址
+     hige:第二个有序区间的结束地址
+     */
+    func mergeArr(_ arr: inout [Int], _ low: Int, _ mid: Int, _ high: Int) {
+        var i = low
+        var j = mid+1
+        var k = 0
+        var temp = Array<Int>(repeatElement(0, count: high-low+1))//临时数组
+        
+        while i <= mid && j <= high {
+            if arr[i] < arr[j] {
+                temp[k] = arr[i]
+                k += 1
+                i += 1
+            } else {
+                temp[k] = arr[j]
+                k += 1
+                j += 1
+            }
+        }
+        //高序列先越界
+        while i <= mid {
+            temp[k] = arr[i]
+            i += 1
+            k += 1
+        }
+        //低序列先越界
+        while j <= high {
+            temp[k] = arr[j]
+            j += 1
+            k += 1
+        }
+        
+        //将排列好的序列复制回原序列
+        k = 0;
+        for i in low...high {
+            arr[i] = temp[k]
+            k += 1
+        }
+    }
+    //归并排序
+    func mergeSort(_ arr: inout [Int]) {
+        var gap = 1//1,2,4,8,16...
+        while gap < arr.count {
+            mergePass(&arr, gap: gap)
+            gap *= 2
+        }
+    }
+    //分解合并序列
+    func mergePass(_ arr: inout [Int], gap: Int) {
+        var i = 0
+        let count = arr.count
+        
+        while i + 2*gap - 1 < count {
+            mergeArr(&arr, i, i+gap-1, i+2*gap-1)
+            i = i + 2*gap
+        }
+        //合并剩余序列
+        if i+gap-1 < count {
+            mergeArr(&arr, i, i+gap-1, count-1)
+        }
+    }
 
-//: 归并排序
-var new: [Int] = []
-for i in 0...7 {
-    new.append(i)
-}
-new = [2,4,5,7,1,2,3,6]
-func merge(_ arr: [Int], _ min: Int, _ mid: Int, _ max: Int) {
-    
-}
-merge(new, 0, 3, 7) {
-    
-}
+    var array = [2, 5, 8, 9, 10, 4, 3, 16, 1, 7, 8];
 
+    mergeSort(&array);
+}
+    
 /*:
  时间复杂度
  nlgn
@@ -110,22 +175,89 @@ merge(new, 0, 3, 7) {
  快速排序(采用分治法)
  在时间复杂度为O(nlogn)中较快的方法
  */
-
-func QuickSqrt(arr: [Int], left: Int, right: Int) {
-    var i = left
-    var j = right
-    //基数
-    var b = arr[0]
-    while i < j {
-        while j < i && arr[j] <= b {
-            j = j - 1
+do {
+    //1.调整数组, 返回调整后的基数的位置
+    func AdjustArr(_ arr: inout [Int], _ left: Int, _ right: Int) -> Int {
+        var i = left
+        var j = right
+        //基数
+        let b = arr[left]
+        while i < j {
+            //自右向左查找比基数小的数
+            while i < j && arr[j] >= b {
+                j = j - 1
+            }
+            if (i < j) {
+                arr[i] = arr[j]
+                i = i + 1
+            }
+            //自左向右查找比基数大的数
+            while i < j && arr[i] <= b {
+                i = i + 1
+            }
+            if i < j {
+                arr[j] = arr[i]
+                j = j - 1
+            }
         }
-        arr[i] = arr[j]
-    
-        while i < j && arr[i] >= b {
-            i = i + 1
-        }
-        arr[j] = arr[i]
+        //确定基数的位置
+//        if i == j {
+            arr[i] = b
+//        }
+        return i
     }
+    
+    //2.分治
+    func QuickSqrt(_ arr: inout [Int], _ left: Int, _ right: Int) {
+
+        if left < right {
+            var idx = AdjustArr(&arr, left, right)
+            QuickSqrt(&arr, left, idx-1)
+            
+            QuickSqrt(&arr, idx+1, right)
+            
+            
+        }
+    }
+    
+    var arr: [Int] = [72, 6, 57, 88, 60, 42, 83, 73, 48, 85]
+
+    //QuickSqrt(&arr, 0, arr.count-1)
+    
+    //合并代码
+    func QS(_ arr: inout [Int], _ left: Int, _ right: Int) {
+        
+        if left < right {
+            var i = left
+            var j = right
+            //基数
+            let b = arr[left]
+            while i < j {
+                //自右向左查找比基数小的数
+                while i < j && arr[j] >= b {
+                    j = j - 1
+                }
+                if (i < j) {
+                    arr[i] = arr[j]
+                    i = i + 1
+                }
+                //自左向右查找比基数大的数
+                while i < j && arr[i] <= b {
+                    i = i + 1
+                }
+                if i < j {
+                    arr[j] = arr[i]
+                    j = j - 1
+                }
+            }
+            //确定基数的位置
+            arr[i] = b
+            QuickSqrt(&arr, left, i-1)
+            QuickSqrt(&arr, i+1, right)
+        }
+    
+    }
+    QS(&arr, 0, 9)
+    
     
 }
