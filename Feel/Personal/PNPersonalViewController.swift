@@ -15,9 +15,10 @@ class PNPersonalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         let btn = PNButton(image: "1", title: "浇水", frame: CGRect(x: 20, y: 100, width: 50, height: 80) )
         view.addSubview(btn)
-        
+
     }
     
 
