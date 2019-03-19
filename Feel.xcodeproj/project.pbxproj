@@ -52,6 +52,9 @@
 		BC6DF28021A30A6600765710 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DF27F21A30A6600765710 /* BaseViewController.swift */; };
 		BC6DF28221A30AA200765710 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DF28121A30AA200765710 /* BaseNavigationController.swift */; };
 		BC6DF28621A30C1200765710 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DF28521A30C1200765710 /* BaseTabBarController.swift */; };
+		BCEBBD1D22413B2F00D7DBB4 /* PNGreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBBD1C22413B2F00D7DBB4 /* PNGreetViewController.swift */; };
+		BCEBBD1F22413B6300D7DBB4 /* PNGreetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBBD1E22413B6300D7DBB4 /* PNGreetViewModel.swift */; };
+		BCEBBD2122413BEF00D7DBB4 /* PNGreetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBBD2022413BEF00D7DBB4 /* PNGreetModel.swift */; };
 		C739E980188FD10EC9E647AD /* Pods_FeelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ADDD570D778075C964719B /* Pods_FeelTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +147,9 @@
 		BC6DF27F21A30A6600765710 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC6DF28121A30AA200765710 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		BC6DF28521A30C1200765710 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		BCEBBD1C22413B2F00D7DBB4 /* PNGreetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGreetViewController.swift; sourceTree = "<group>"; };
+		BCEBBD1E22413B6300D7DBB4 /* PNGreetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGreetViewModel.swift; sourceTree = "<group>"; };
+		BCEBBD2022413BEF00D7DBB4 /* PNGreetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGreetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +185,11 @@
 			isa = PBXGroup;
 			children = (
 				3D07E73B21A3D71200C49924 /* PNHomeViewController.swift */,
-				3DA5F4C021E828C60010688D /* view */,
 				3D0E444A21E5E5F100E37125 /* PNTransViewController.swift */,
+				3DA5F4C021E828C60010688D /* view */,
+				BCEBBD1C22413B2F00D7DBB4 /* PNGreetViewController.swift */,
+				BCEBBD1E22413B6300D7DBB4 /* PNGreetViewModel.swift */,
+				BCEBBD2022413BEF00D7DBB4 /* PNGreetModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -506,6 +515,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
 				"${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -516,6 +526,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebViewJavascriptBridge.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -596,9 +607,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D07E73C21A3D71200C49924 /* PNHomeViewController.swift in Sources */,
+				BCEBBD1D22413B2F00D7DBB4 /* PNGreetViewController.swift in Sources */,
 				3D0CDD0D21F0819D00466FD3 /* UIColor+PNAdd.swift in Sources */,
 				3D15B24221F5EF30002BA785 /* PNWebNativeController.swift in Sources */,
 				3D07E74421A3FDA400C49924 /* Feel.swift in Sources */,
+				BCEBBD2122413BEF00D7DBB4 /* PNGreetModel.swift in Sources */,
 				3DA5F48D21E6F5160010688D /* UIFont+PNAdd.swift in Sources */,
 				3DA5F48F21E73AE30010688D /* Int+PNAdd.swift in Sources */,
 				BC49EEEC21A30181004F5959 /* ViewController.swift in Sources */,
@@ -608,6 +621,7 @@
 				3D79A75421F804E100BEEE07 /* PNURLViewController.swift in Sources */,
 				BC6DF28021A30A6600765710 /* BaseViewController.swift in Sources */,
 				3D10532E21FAAA23007596D8 /* PNWJBViewController.swift in Sources */,
+				BCEBBD1F22413B6300D7DBB4 /* PNGreetViewModel.swift in Sources */,
 				3D0E444721E5CF8A00E37125 /* One.swift in Sources */,
 				3D79A75021F71B5B00BEEE07 /* PNJSCViewController.swift in Sources */,
 				3D07EE6921A6B41D00C49924 /* PNTextArrowView.swift in Sources */,

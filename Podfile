@@ -23,5 +23,6 @@ target 'Feel' do
   pod 'SnapKit'
   pod 'Toast'
   pod 'WebViewJavascriptBridge'
+  pod 'YYKit'
 
 end

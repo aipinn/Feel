@@ -36,6 +36,7 @@ class PNTransViewController: BaseViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        //恢复默认导航栏
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
     }
@@ -104,14 +105,9 @@ extension PNTransViewController: UIScrollViewDelegate {
         }
         item.transform = item.transform.translatedBy(x: 0, y: diff)
 
-        if  offsetY < 0 {
-            navigationController?.navigationBar.isHidden = true
-            item.alpha = abs(offsetY)/kTopBarHeight
-
-        } else if offsetY >= 0 {
-            navigationController?.navigationBar.isHidden = false
-            navigationController?.navigationBar.alpha = offsetY / 150.0
-
-        }
+        let ff = offsetY/155.0
+        let color = UIColor.white.withAlphaComponent(ff);
+            navigationController?.navigationBar.backgroundColor = color;
+//        navigationController?.navigationBar.setBackgroundImage(UIImage.image, for: .default)
     }
 }
