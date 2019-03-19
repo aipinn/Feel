@@ -31,7 +31,7 @@ class PNGreetViewModel: PNGreetViewModelProtocol {
         self.person = person
     }
     
-    func showGreeting() {
+    @objc func showGreeting() {
         if let fn = person?.lastName, let ln = person?.lastName {
             self.greeting = "Hello " + fn + " " + ln + "!"
         }
