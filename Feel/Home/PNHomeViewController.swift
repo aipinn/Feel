@@ -13,16 +13,19 @@ class PNHomeViewController: BaseViewController {
     private var tableView: UITableView?
     lazy var dataSource: [String] = {
         var array:[String] = Array()
-        for i in 1...20 {
-            if i == 1 {
+//        for i in 1...20 {
+//            if i == 1 {
                 array.append("PNWebViewController")
-            } else {
+//            } else {
                 array.append("PNTransViewController")
-            }
-        }
+//            }
+//        }
+        
+        array.append("PNGreetViewController")
         return array
     }()
     lazy var str: String = "Lazy string"
+    lazy var arr: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,12 @@ extension PNHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = dataSource[indexPath.row].getViewController() else {
             return
+        }
+        if vc.isKind(of: PNGreetViewController.classForCoder()) {
+            let p = Person(firstName: "p", lastName: "a", age: 12)
+            let viewModel = PNGreetViewModel(person: p)
+            let view = vc as! PNGreetViewController
+            view.viewModel = viewModel
         }
         navigationController?.pushViewController(vc, animated: true)
     }

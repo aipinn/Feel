@@ -171,6 +171,8 @@ do {
  nlgn
  */
 
+//: 归并排序
+func merge(arr:[Int], p: [Int], q: [Int], r: [Int]) {
 /*:
  快速排序(采用分治法)
  在时间复杂度为O(nlogn)中较快的方法
@@ -258,6 +260,5 @@ do {
     
     }
     QS(&arr, 0, 9)
-    
-    
+        
 }
