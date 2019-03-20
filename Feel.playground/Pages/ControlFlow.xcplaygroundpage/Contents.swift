@@ -5,7 +5,7 @@ var str = "Hello, Flow"
 /// ==============控制流=============
 
 /// swift 判断条件不再隐式与0做计算,必须是布尔表达式
-let scores = [45,56,23,54,65,23,50,89]
+var scores = [45,56,23,54,65,23,50,89]
 let scoresStr = ["1", "3","5"]
 var ts = 0
 for score in scores {
@@ -14,6 +14,7 @@ for score in scores {
     } else {
         ts += 1
     }
+    
 }
 
 for str in scoresStr {

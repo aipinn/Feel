@@ -270,12 +270,27 @@ protocol MyProtocol {
 extension MyProtocol {
     // 提供默认实现
     func optionalMethod() {
-        
+
     }
+
 }
 class ObjectClass: MyProtocol {
     func requiredMethod() {
-        
+
     }
+    
 }
 
+protocol SubMyProtocol: MyProtocol {
+    func newMethod()
+}
+
+class newObjectClass: SubMyProtocol {
+    
+    func requiredMethod() {
+        
+    }
+    func newMethod() {
+
+    }
+}

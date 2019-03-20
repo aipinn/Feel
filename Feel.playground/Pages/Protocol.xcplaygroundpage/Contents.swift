@@ -8,7 +8,7 @@ var str = "Hello, Protocol"
 protocol SomeProtocol {
     var mustBeSettable: Int { get set }
     var doesNotNeedTobeSettable: Int { get }
-    //var noMarkAccessIsError: Int
+//    var noMarkAccessIsError: Int
 }
 
 protocol OneProtocol {

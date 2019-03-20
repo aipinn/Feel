@@ -33,3 +33,10 @@ dic = mDic
 let addrA = String(format: "%p", dic)
 
 dict.hashValue
+
+let ssss = """
+I am a corder
+    hello world!
+"""
+
+print(ssss)

@@ -24,6 +24,7 @@ enum OptionalValue<Wrapped> {
 var posdibleInteger: OptionalValue<Int> = .none
 posdibleInteger = .some(100)
 
+
 func anyCommonElements<T: Sequence, U: Sequence>(lhs: T, rhs: U) -> Bool
     where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element {
         for lhsItem in lhs {

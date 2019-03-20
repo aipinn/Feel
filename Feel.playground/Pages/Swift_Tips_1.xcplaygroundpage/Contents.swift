@@ -59,7 +59,7 @@ class ClassB: ClassA {
     }
 }
 
-//与Ddesignated初始化方法对应的是在init前加convenience关键字的初始化方法.
+//与Designated初始化方法对应的是在init前加convenience关键字的初始化方法.
 //这类初始化方法是初始化方法的"二等公民",只做补充和提供便利.
 //所有的convenience初始化方法都必须调用同一个类中的designated
 
@@ -109,7 +109,7 @@ URL.init(string: " ")
 //-----------------------------------------
 
 // swift中表示类型范围作用域的关键字: static和class
-// 在非class的类型上下文中,统一使用static来描述类型的所用于. 这包括在enum和struct中表述类型方法和类型属性时.在这两个值类型中,我们可以在类型范围内声明并使用存储属性 计算属性和方法.
+// 在非class的类型上下文中,统一使用static来描述类型的作用域. 这包括在enum和struct中表述类型方法和类型属性时.在这两个值类型中,我们可以在类型范围内声明并使用存储属性 计算属性和方法.
 // static的使用场景:
 struct Point {
     let x: Double
@@ -148,6 +148,7 @@ class MyClass {
     //类的存储属性是不能使用class的, 但是可以使用static
     //class var bar: UIBarButtonItem?
     static var bar: UIBarButtonItem?
+    //方法可以使用static和class
     class func classAdd(){}
     static func staticAdd(){}
     //计算属性可以使用class/static
@@ -171,16 +172,23 @@ MyClass.staticAdd()
 //对于协议只能使用static
 protocol MyProtocol {
     static func foo() -> String
+    func foo1() -> String
 }
 struct MyStruct: MyProtocol {
     static func foo() -> String {
         return "MyStruct"
+    }
+    func foo1() -> String {
+        return "1"
     }
 }
 
 enum MyEnum: MyProtocol {
     static func foo() -> String {
         return "MyEnum"
+    }
+    func foo1() -> String {
+        return "1"
     }
 }
 
@@ -194,11 +202,15 @@ class MyClassNew: MyProtocol {
     class func foo() -> String {
         return "MyClassnew"
     }
+    func foo1() -> String {
+        return "1"
+    }
 }
 
 MyStruct.foo()
 MyEnum.foo()
 MyClassNew.foo()
+
 
 // ***任何时候使用static都是可以的***
 
@@ -298,6 +310,7 @@ class A {
 }
 let typeA: A.Type = A.self
 typeA.method()
+A.method()
 
 // 或者
 let anyClass: AnyClass = A.self

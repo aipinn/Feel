@@ -30,7 +30,7 @@ let aceRawVallue = ace.rawValue
 ace.simpleDesc()
 let queen = Rank.queen
 queen.simpleDesc()
-
+Rank.init(rawValue: 2)
 if let convertedRank = Rank(rawValue: 3) {
     print(convertedRank.simpleDesc())
 }

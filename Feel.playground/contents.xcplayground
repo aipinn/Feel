@@ -25,5 +25,8 @@
         <page name='PredicateAndRegex'/>
         <page name='Algorithm'/>
         <page name='InterviewQ'/>
+        <page name='AFN'/>
+        <page name='CoreAnimation'/>
+        <page name='MVP'/>
     </pages>
 </playground>

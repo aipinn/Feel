@@ -28,3 +28,11 @@ do  {
     
  }
 
+do  {
+    let printerResponse = try send(job: 1040, toPrinter: "Never Has Toner")
+    print(printerResponse)
+} catch {
+    print(error)
+
+}
+
