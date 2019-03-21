@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.7.2)
   - Masonry (1.1.0)
   - SnapKit (4.2.0)
+  - SwiftyJSON (4.2.0)
   - Toast (4.0.0)
   - WebViewJavascriptBridge (6.0.3)
   - YYKit (1.0.9):
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Alamofire
   - Masonry
   - SnapKit
+  - SwiftyJSON
   - Toast
   - WebViewJavascriptBridge
   - YYKit
@@ -21,6 +23,7 @@ SPEC REPOS:
     - Alamofire
     - Masonry
     - SnapKit
+    - SwiftyJSON
     - Toast
     - WebViewJavascriptBridge
     - YYKit
@@ -29,10 +32,11 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 8dc57a56434b8e13a6809833de8efac184fca674
+PODFILE CHECKSUM: f4bc33fdf2b7dbdf58c57e8bec8efc815963ff74
 
 COCOAPODS: 1.5.3

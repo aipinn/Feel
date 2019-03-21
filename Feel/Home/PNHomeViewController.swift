@@ -13,15 +13,15 @@ class PNHomeViewController: BaseViewController {
     private var tableView: UITableView?
     lazy var dataSource: [String] = {
         var array:[String] = Array()
-//        for i in 1...20 {
-//            if i == 1 {
-                array.append("PNWebViewController")
-//            } else {
-                array.append("PNTransViewController")
-//            }
-//        }
+
+        array.append("PNWebViewController")
+
+        array.append("PNTransViewController")
         
         array.append("PNGreetViewController")
+        
+        array.append("PNSayViewController")
+        
         return array
     }()
     lazy var str: String = "Lazy string"
@@ -62,6 +62,13 @@ extension PNHomeViewController: UITableViewDelegate, UITableViewDataSource {
             let viewModel = PNGreetViewModel(person: p)
             let view = vc as! PNGreetViewController
             view.viewModel = viewModel
+        }
+        if vc.isKind(of: PNSayViewController.classForCoder()) {
+            
+            let s = Say(chinese: "你好", english: "hello")
+            let view = vc as! PNSayViewController
+            let presenter = PNSayViewPresenter(view: view, say: s)
+            view.presenter = presenter
         }
         navigationController?.pushViewController(vc, animated: true)
     }

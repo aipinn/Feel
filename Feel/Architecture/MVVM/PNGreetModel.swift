@@ -8,10 +8,7 @@
 
 import UIKit
 
-class PNGreetModel: NSObject {
-
-}
-
+//model
 struct Person {
     let firstName: String
     let lastName: String

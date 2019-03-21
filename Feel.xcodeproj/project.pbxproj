@@ -18,6 +18,10 @@
 		3D0E444721E5CF8A00E37125 /* One.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E444621E5CF8A00E37125 /* One.swift */; };
 		3D0E444921E5CF9800E37125 /* Two.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E444821E5CF9800E37125 /* Two.swift */; };
 		3D0E444B21E5E5F100E37125 /* PNTransViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E444A21E5E5F100E37125 /* PNTransViewController.swift */; };
+		3D10451C2242125700D48240 /* PNSayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10451B2242125700D48240 /* PNSayViewController.swift */; };
+		3D10451E2242128B00D48240 /* PNSayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10451D2242128B00D48240 /* PNSayModel.swift */; };
+		3D104520224212CA00D48240 /* PNSayViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10451F224212CA00D48240 /* PNSayViewPresenter.swift */; };
+		3D1045382243741100D48240 /* cityCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D1045372243741100D48240 /* cityCode.plist */; };
 		3D10532E21FAAA23007596D8 /* PNWJBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10532D21FAAA23007596D8 /* PNWJBViewController.swift */; };
 		3D10533021FAAA4A007596D8 /* PNWebBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10532F21FAAA4A007596D8 /* PNWebBaseViewController.swift */; };
 		3D10533221FABBC3007596D8 /* index4.html in Resources */ = {isa = PBXBuildFile; fileRef = 3D10533121FABBC3007596D8 /* index4.html */; };
@@ -104,6 +108,10 @@
 		3D0E444621E5CF8A00E37125 /* One.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = One.swift; sourceTree = "<group>"; };
 		3D0E444821E5CF9800E37125 /* Two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Two.swift; sourceTree = "<group>"; };
 		3D0E444A21E5E5F100E37125 /* PNTransViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNTransViewController.swift; sourceTree = "<group>"; };
+		3D10451B2242125700D48240 /* PNSayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSayViewController.swift; sourceTree = "<group>"; };
+		3D10451D2242128B00D48240 /* PNSayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSayModel.swift; sourceTree = "<group>"; };
+		3D10451F224212CA00D48240 /* PNSayViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSayViewPresenter.swift; sourceTree = "<group>"; };
+		3D1045372243741100D48240 /* cityCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityCode.plist; sourceTree = "<group>"; };
 		3D10532D21FAAA23007596D8 /* PNWJBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNWJBViewController.swift; sourceTree = "<group>"; };
 		3D10532F21FAAA4A007596D8 /* PNWebBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNWebBaseViewController.swift; sourceTree = "<group>"; };
 		3D10533121FABBC3007596D8 /* index4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index4.html; sourceTree = "<group>"; };
@@ -187,9 +195,6 @@
 				3D07E73B21A3D71200C49924 /* PNHomeViewController.swift */,
 				3D0E444A21E5E5F100E37125 /* PNTransViewController.swift */,
 				3DA5F4C021E828C60010688D /* view */,
-				BCEBBD1C22413B2F00D7DBB4 /* PNGreetViewController.swift */,
-				BCEBBD1E22413B6300D7DBB4 /* PNGreetViewModel.swift */,
-				BCEBBD2022413BEF00D7DBB4 /* PNGreetModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -211,6 +216,35 @@
 				3D0E444821E5CF9800E37125 /* Two.swift */,
 			);
 			path = Swift;
+			sourceTree = "<group>";
+		};
+		3D1045192241DD5700D48240 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				BCEBBD1C22413B2F00D7DBB4 /* PNGreetViewController.swift */,
+				BCEBBD1E22413B6300D7DBB4 /* PNGreetViewModel.swift */,
+				BCEBBD2022413BEF00D7DBB4 /* PNGreetModel.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		3D10451A224211C100D48240 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				3D1045192241DD5700D48240 /* MVVM */,
+				3D10452122421CA500D48240 /* MVP */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
+		3D10452122421CA500D48240 /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				3D10451B2242125700D48240 /* PNSayViewController.swift */,
+				3D10451F224212CA00D48240 /* PNSayViewPresenter.swift */,
+				3D10451D2242128B00D48240 /* PNSayModel.swift */,
+			);
+			path = MVP;
 			sourceTree = "<group>";
 		};
 		3D10532C21FA9E45007596D8 /* WebNative */ = {
@@ -315,6 +349,7 @@
 		BC49EEE821A30181004F5959 /* Feel */ = {
 			isa = PBXGroup;
 			children = (
+				3D10451A224211C100D48240 /* Architecture */,
 				3D0DC47421B51F3C00963A73 /* Swift */,
 				3D07E73D21A3DF9D00C49924 /* Personal */,
 				3D07E73A21A3D65E00C49924 /* Home */,
@@ -352,6 +387,7 @@
 		BC6DF27C21A309F800765710 /* FLBase */ = {
 			isa = PBXGroup;
 			children = (
+				3D1045372243741100D48240 /* cityCode.plist */,
 				BC6DF27D21A30A5000765710 /* BaseModel.swift */,
 				BC6DF27F21A30A6600765710 /* BaseViewController.swift */,
 				BC6DF28121A30AA200765710 /* BaseNavigationController.swift */,
@@ -478,6 +514,7 @@
 				3D15B24721F6A60A002BA785 /* H1.html in Resources */,
 				3D79A75621F80CF400BEEE07 /* index3.html in Resources */,
 				BC0AB62921F6244B001A4F0E /* html2 in Resources */,
+				3D1045382243741100D48240 /* cityCode.plist in Resources */,
 				3D15B24D21F6C748002BA785 /* index1.html in Resources */,
 				BC49EEF121A30181004F5959 /* Assets.xcassets in Resources */,
 				BC49EEEF21A30181004F5959 /* Main.storyboard in Resources */,
@@ -513,6 +550,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
 				"${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
@@ -524,6 +562,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebViewJavascriptBridge.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
@@ -628,14 +667,17 @@
 				3D07E74921A50C9200C49924 /* PNSignatureView.swift in Sources */,
 				3D15B24B21F6C6DA002BA785 /* PNMsgHandlerController.swift in Sources */,
 				3DA5F48A21E6E0790010688D /* String+PNAdd.swift in Sources */,
+				3D10451E2242128B00D48240 /* PNSayModel.swift in Sources */,
 				BC6DF28621A30C1200765710 /* BaseTabBarController.swift in Sources */,
 				3D57719A21C8EB5400444407 /* main.swift in Sources */,
 				3D0E444B21E5E5F100E37125 /* PNTransViewController.swift in Sources */,
 				3D10533021FAAA4A007596D8 /* PNWebBaseViewController.swift in Sources */,
+				3D104520224212CA00D48240 /* PNSayViewPresenter.swift in Sources */,
 				BC6DF27E21A30A5000765710 /* BaseModel.swift in Sources */,
 				3D0E444921E5CF9800E37125 /* Two.swift in Sources */,
 				BC6DF28221A30AA200765710 /* BaseNavigationController.swift in Sources */,
 				BC49EEEA21A30181004F5959 /* AppDelegate.swift in Sources */,
+				3D10451C2242125700D48240 /* PNSayViewController.swift in Sources */,
 				3D15B23C21F5A7FC002BA785 /* PNWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

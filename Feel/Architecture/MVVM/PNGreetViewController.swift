@@ -24,18 +24,17 @@ class PNGreetViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let btn = UIButton(frame: CGRect(x: 0, y: 100, width: 60, height: 30))
+        let btn = UIButton(frame: CGRect(x: 0, y: 100, width: 100, height: 30))
         btn.backgroundColor = .cyan
         view.addSubview(btn)
         btn.addTarget(self.viewModel, action:#selector(PNGreetViewModel.showGreeting) , for: .touchUpInside)
         greetingButton = btn
         
-        let label = UILabel(frame: CGRect(x: 0, y: 150, width: 60, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 150, width: 100, height: 30))
         label.textColor = .green
         label.backgroundColor = .orange
         view.addSubview(label)
         greetingLabel = label
-        
         
     }
     

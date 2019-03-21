@@ -7,8 +7,6 @@ import PlaygroundSupport
 var str = "Hello, playground"
 
 //: [Next](@next)
-<<<<<<< HEAD
-
 
 extension Int {
     func randomArray(_ max: UInt32) -> [UInt] {
@@ -64,7 +62,3 @@ selArr
 let btn = PNButton(image: "1", title: "浇水", frame: CGRect(x: 0, y: 0, width: 50, height: 80) )
 
 PlaygroundPage.current.liveView = btn
-
-
-=======
->>>>>>> 449f857f8e75c8d0dc6eaa7b6a1179d421ce512d
