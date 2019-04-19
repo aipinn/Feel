@@ -483,7 +483,7 @@ class AA {
 class BB: AA {
     override var number: Int {
         willSet {
-//            print(newValue)
+            print(newValue)
             print("willset")
         }
         didSet {

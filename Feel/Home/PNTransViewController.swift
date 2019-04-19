@@ -16,7 +16,7 @@ class PNTransViewController: BaseViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @objc func buttonSelected() {

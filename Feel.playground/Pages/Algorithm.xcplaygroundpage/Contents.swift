@@ -34,6 +34,9 @@ for j in 1...arr.count-1 {
     arr[i+1] = key
 }
 arr
+
+
+
 /*:
  时间复杂度
  n^2

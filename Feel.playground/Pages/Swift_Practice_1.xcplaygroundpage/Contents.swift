@@ -319,7 +319,7 @@ class Foo {
 class Baz {
     func baz() {
         print(Foo().fileprivateBtn)
-        
+        //print(Foo().privateBtn)
     }
 }
 

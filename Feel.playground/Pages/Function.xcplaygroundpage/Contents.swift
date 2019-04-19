@@ -134,6 +134,7 @@ class myList {
         print(list)
     }
     
+    
 }
 
 var list: myList?
@@ -144,3 +145,17 @@ list?.mySort { (a, b) -> Bool in
 list?.mySort{ $0 < $1 }
 
 
+let aa = ["1", "2", "asd", ".", "5"]
+let bb = aa.flatMap {
+    return Int($0)
+}
+let cc = aa.map {
+    return Int($0)
+}
+let dd = aa.compactMap {
+    return Int($0)
+}
+aa
+bb
+cc
+dd

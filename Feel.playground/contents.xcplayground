@@ -27,6 +27,7 @@
         <page name='InterviewQ'/>
         <page name='AFN'/>
         <page name='CoreAnimation'/>
+        <page name='CoreAnimation1'/>
         <page name='MVP'/>
     </pages>
 </playground>

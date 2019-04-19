@@ -25,5 +25,5 @@ target 'Feel' do
   pod 'WebViewJavascriptBridge'
   pod 'YYKit'
   pod 'SwiftyJSON'
-
+  
 end

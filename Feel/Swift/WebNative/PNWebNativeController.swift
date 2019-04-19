@@ -16,11 +16,21 @@ class PNWebNativeController: PNWebBaseViewController {
         super.viewDidLoad()
         fileName1 = "First"
         fileName2 = "Second"
+
+//        let temp = UIWebView()
+//        let old = temp.stringByEvaluatingJavaScript(from: "navigator.userAgent")
+//        let new = old?.appending(" Pengpeng/2.4.7 ch_appstore")
+//        let dic = ["UserAgent":new!]
+//        UserDefaults.standard.register(defaults: dic)
+//        let web = UIWebView(frame: view.bounds)
+//        view.addSubview(web)
+//        web.loadRequest(URLRequest(url: URL(string: "http://10.10.53.22:8085/1.html")!))
         
         do {
             let rightItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(js))
             navigationItem.rightBarButtonItem = rightItem
         }
+        
     }
     deinit {
         printing("")

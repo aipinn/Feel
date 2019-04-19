@@ -75,7 +75,6 @@ class EquilateralTriangle: NamedShape {
         super.init(name: name)
         numberOfSise = 3
     }
-    
     var perimter: Double {
         get {
             return 3 * sideLength
